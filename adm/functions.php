@@ -30,11 +30,17 @@ function tambah($data)
         return false;
     }
 
-    // query insert data
-    $query = "INSERT INTO mahasiswa VALUES ('', '$nrp', '$nama', '$email', '$jurusan', '$gambar')";
-    mysqli_query($conn, $query);
+    // validasi udah ada atau belum
+    $cek = mysqli_query($conn,"select * from mahasiswa where nrp='$nrp'");
+    $hitung = mysqli_num_rows($cek);
 
-    return mysqli_affected_rows($conn);
+    if($hitung<1){
+        // query insert data
+        $query = "INSERT INTO mahasiswa VALUES ('', '$nrp', '$nama', '$email', '$jurusan', '$gambar')";
+        mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
 }
 
 function upload()
@@ -90,6 +96,7 @@ function hapus($id)
 
     return mysqli_affected_rows($conn);
 }
+
 
 function ubah($data)
 {
@@ -160,6 +167,29 @@ function registrasi($data)
 
     // tambahkan user baru ke database
     mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$password')");
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapusAdmin($id)
+{
+    global $conn;
+    // hapus data dari tabel
+    mysqli_query($conn, "DELETE FROM user WHERE id = $id");
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubahAdmin($data)
+{
+    global $conn;
+    // ambil data dari tiap elemen dalam form
+    $id = $data["id"];
+    $username = htmlspecialchars($data["username"]);
+
+    // query insert data
+    $query = "UPDATE user SET username = '$username' WHERE id = $id";
+    mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
 }
