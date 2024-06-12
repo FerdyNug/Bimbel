@@ -42,10 +42,7 @@
                             <a class="nav-link" href="#paket">Pilihan Paket</a>
                         </li>
                         <li class="nav-item">
-                            <<<<<<< HEAD <!-- <a href="login.php" class="nav-link btn btn-success text-white fs-5">Masuk</a> -->
-                                =======
-                                <a href="masuk.php" class="text-white text-decoration-none masuk">Masuk</a>
-                                >>>>>>> ddaf673cd49103ec00b8a21e614a09e44cceca95
+                            <a href="masuk.php" class="text-white text-decoration-none masuk">Masuk</a>
                         </li>
                     </ul>
                 </div>
