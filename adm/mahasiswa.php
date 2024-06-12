@@ -40,13 +40,13 @@ if (isset($_POST["tambahMahasiswa"])) {
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Data Mahasiswa</h1>
+                <h1 class="mt-4">Data Anggota</h1>
                 <div class="card mb-4 mt-5">
                     <div class="card-header">
 
                         <!-- Button to Open Modal Tambah-->
                         <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                            Tambah Mahasiswa
+                            Tambah Anggota
                         </button>
 
                         <a href="export.php" class="btn btn-info text-white">Export Data</a>
