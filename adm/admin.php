@@ -1,5 +1,5 @@
 <?php
-require 'header.php';
+require 'template/header.php';
 $admin = query("SELECT * FROM user");
 
 if (isset($_POST["register"])) {
@@ -17,7 +17,7 @@ if (isset($_POST["register"])) {
 ?>
 <div id="layoutSidenav">
     <?php
-    require('sidebar.php');
+    require('template/sidebar.php');
     ?>
     <div id="layoutSidenav_content">
         <main>
@@ -39,7 +39,7 @@ if (isset($_POST["register"])) {
                                 <tr>
                                     <th>No</th>
                                     <th>Username</th>
-                                    <th>Aksi</th>
+                                    <th >Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +69,7 @@ if (isset($_POST["register"])) {
             </div>
         </main>
         <?php
-        require('footer.php');
+        require('template/footer.php');
         ?>
 
         <!-- Modal Tambah Mahasiswa -->

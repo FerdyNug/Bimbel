@@ -1,6 +1,6 @@
 <?php
 
-require 'header.php';
+require 'template/header.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
 
 // tombol cari ditekan
@@ -34,7 +34,7 @@ if (isset($_POST["tambahMahasiswa"])) {
 <div id="layoutSidenav">
 
     <?php
-    require('sidebar.php');
+    require('template/sidebar.php');
     ?>
 
     <div id="layoutSidenav_content">
@@ -98,7 +98,7 @@ if (isset($_POST["tambahMahasiswa"])) {
             </div>
         </main>
         <?php
-        require('footer.php');
+        require('template/footer.php');
         ?>
 
         <!-- Modal Tambah Mahasiswa -->

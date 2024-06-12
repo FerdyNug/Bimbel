@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'functions.php';
+require 'inc/functions.php';
 
 // cek cookie
 if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
@@ -65,10 +65,11 @@ if (isset($_POST["login"])) {
     <meta name="author" content="" />
     <title>Halaman Login</title>
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body class="bg-primary">
+<body class="bodyLogin">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -77,7 +78,7 @@ if (isset($_POST["login"])) {
                         <div class="col-lg-5">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4 fw-bold">Halaman Login</h3>
+                                    <h3 class="text-center font-weight-light my-4 fw-bold">Halaman Login <br> Admin</h3>
                                 </div>
                                 <div class="card-body">
                                     <?php if (isset($error)) : ?>
@@ -97,7 +98,7 @@ if (isset($_POST["login"])) {
                                             <label for="remember">Remember me</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button class="btn btn-primary" type="submit" name="login">Login!</button>
+                                            <button class="btn btn-primary" type="submit" name="login">Login</button>
                                         </div>
                                     </form>
                                 </div>
@@ -110,7 +111,7 @@ if (isset($_POST["login"])) {
     </div>
 
     <?php
-    require('footer.php');
+    require('template/footer.php');
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

@@ -1,6 +1,6 @@
 <?php
 
-require 'header.php';
+require 'template/header.php';
 $admin = query("SELECT * FROM user");
 
 // ambil data di URL
@@ -35,7 +35,7 @@ if (isset($_POST["ubahAdmin"])) {
 <div id="layoutSidenav">
 
     <?php
-    require('sidebar.php');
+    require('template/sidebar.php');
     ?>
 
     <div id="layoutSidenav_content">
@@ -60,5 +60,5 @@ if (isset($_POST["ubahAdmin"])) {
                 </table>
 
                 <?php
-                require('footer.php');
+                require('template/footer.php');
                 ?>
