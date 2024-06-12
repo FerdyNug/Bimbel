@@ -59,46 +59,57 @@ if (isset($_POST["login"])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>Halaman Login</title>
+    <link href="css/styles.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="container text-center p-5">
-        <h1>Halaman Login</h1>
-
-        <?php if (isset($error)) : ?>
-            <p style="color: red; font-style: italic;">username / password salah</p>
-        <?php endif; ?>
-
-        <form action="" method="post">
-
-            <ul class="list-unstyled">
-                <li>
-                    <label for="username">Username : </label>
-                    <input type="text" name="username" id="username">
-                </li>
-                <li>
-                    <label for="password">Password : </label>
-                    <input type="password" name="password" id="password">
-                </li>
-                <li>
-                    <input type="checkbox" name="remember" id="remember">
-                    <label for="remember">Remember me</label>
-                </li>
-                <li>
-                    <button type="submit" name="login">Login!</button>
-                </li>
-            </ul>
-
-        </form>
+<body class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4 fw-bold">Halaman Login</h3>
+                                </div>
+                                <div class="card-body">
+                                    <?php if (isset($error)) : ?>
+                                        <p style="color: red; font-style: italic;">username / password salah</p>
+                                    <?php endif; ?>
+                                    <form action="" method="post">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" type="text" name="username" id="username">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" type="password" name="password" id="password">
+                                            <label for="password">Password</label>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input type="checkbox" name="remember" id="remember">
+                                            <label for="remember">Remember me</label>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mt-4 mb-0">
+                                            <button class="btn btn-primary me-2" type="submit" name="login">Masuk</button>
+                                            <a href="registrasi.php" class="btn btn-outline-primary">Daftar</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </main>
     </div>
-
-
-
-
-
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

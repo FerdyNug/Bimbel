@@ -46,19 +46,19 @@ if (isset($_POST["ubahAdmin"])) {
                 <a type="button" class="btn btn-primary text-white mt-2 mb-2" href="admin.php">
                     Kembali ke halaman Kelola Admin
                 </a>
-                
+
                 <table>
-            <form action="" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?= $adm["id"]; ?>">
-            <div class="form-group">
-                <label for="">Username</label>
-                <input type="text" class="form-control" id="username" value="<?= $adm["username"] ?>" name="username">
-            </div>
-            <input type="submit" name="ubahAdmin" value="Simpan Data" class="btn btn-info mt-5" />
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?= $adm["id"]; ?>">
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input type="text" class="form-control" id="username" value="<?= $adm["username"] ?>" name="username">
+                        </div>
+                        <input type="submit" name="ubahAdmin" value="Simpan Data" class="btn btn-info mt-5" />
 
-        </form>
-    </table>
+                    </form>
+                </table>
 
-        <?php
-        require('footer.php');
-        ?>
+                <?php
+                require('footer.php');
+                ?>

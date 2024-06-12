@@ -16,9 +16,6 @@
             <a class="navbar-brand" href="#">
                 <img src="img/logo.png" alt="Bootstrap" width="30" height="40">
             </a>
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,7 +41,7 @@
                             <a class="nav-link fs-5" href="#">Pilihan Paket</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link btn btn-success text-white fs-5">Masuk</a>
+                            <a href="login.php" class="nav-link btn btn-success text-white fs-5">Masuk</a>
                         </li>
                     </ul>
                 </div>
@@ -62,8 +59,8 @@
                         Persiapkan Diri<br>
                         Menghadapi Ujian</p>
                     <div class="grid text-start">
-                        <div class="g-col btn btn-success fw-bold fs-5" href="#">Gabung Sekarang</div>
-                        <div class="g-col btn btn-success fw-bold fs-5" href="#">Masuk</div>
+                        <div class="g-col btn btn-success fw-bold fs-5" href="login.php">Gabung Sekarang</div>
+                        <div class="g-col btn btn-success fw-bold fs-5" href="login.php">Masuk</div>
                     </div>
                 </div>
             </div>

@@ -29,31 +29,42 @@ if (isset($_POST["register"])) {
     </style>
 </head>
 
-<body>
-    <div class="container text-center p-5">
-        <h1>Halaman Registrasi</h1>
-
-        <form action="" method="post">
-
-            <ul class="list-unstyled">
-                <li>
-                    <label for="username">username : </label>
-                    <input type="text" name="username" id="username">
-                </li>
-                <li>
-                    <label for="password">password : </label>
-                    <input type="password" name="password" id="password">
-                </li>
-                <li>
-                    <label for="password2">konfirmasi password : </label>
-                    <input type="password" name="password2" id="password2">
-                </li>
-                <li>
-                    <button type="submit" name="register">Register!</button>
-                </li>
-            </ul>
-
-        </form>
+<body class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4 fw-bold">Halaman Registrasi</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form action="" method="post">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" type="text" name="username" id="username">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" type="password" name="password" id="password">
+                                            <label for="password">Password</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" type="password" name="password2" id="password2">
+                                            <label for="password2">Konfirmasi Password</label>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <button class="btn btn-primary" type="submit" name="register">Daftar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>

@@ -77,7 +77,7 @@ if (isset($_POST["login"])) {
                         <div class="col-lg-5">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Halaman Login</h3>
+                                    <h3 class="text-center font-weight-light my-4 fw-bold">Halaman Login</h3>
                                 </div>
                                 <div class="card-body">
                                     <?php if (isset($error)) : ?>
@@ -99,17 +99,14 @@ if (isset($_POST["login"])) {
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <button class="btn btn-primary" type="submit" name="login">Login!</button>
                                         </div>
-
-
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </main>
         </div>
-        </main>
-    </div>
     </div>
 
     <?php
