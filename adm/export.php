@@ -5,7 +5,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 <html>
 <head>
-  <title>Data Mahasiswa</title>
+  <title>Export</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -18,7 +18,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 
 <body>x
 <div class="container">
-			<h2>Data Mahasiswa</h2>
+			<h2>Data User</h2>
 				<div class="data-tables datatable-dark">
 					
                 <table class="table table-bordered" id="mauexport" width="100%" cellspacing="0">

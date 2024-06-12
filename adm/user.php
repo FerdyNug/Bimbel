@@ -40,13 +40,13 @@ if (isset($_POST["tambahMahasiswa"])) {
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Data Anggota</h1>
+                <h1 class="mt-4">Data User</h1>
                 <div class="card mb-4 mt-5">
                     <div class="card-header">
 
                         <!-- Button to Open Modal Tambah-->
                         <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                            Tambah Anggota
+                            Tambah User
                         </button>
 
                         <a href="export.php" class="btn btn-info text-white">Export Data</a>
@@ -56,10 +56,10 @@ if (isset($_POST["tambahMahasiswa"])) {
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NRP</th>
-                                    <th>Nama</th>
                                     <th>Email</th>
-                                    <th>Jurusan</th>
+                                    <th>Nama Panggilan</th>
+                                    <th>Password</th>
+                                    <th>Nama Lengkap</th>
                                     <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -76,12 +76,12 @@ if (isset($_POST["tambahMahasiswa"])) {
                                         <td><img src="img/<?= $row["gambar"]; ?>" alt="" width="60"></td>
                                         <td>
                                             <!-- Ubah Mahasiswa -->
-                                            <a type="button" class="btn btn-warning" href="ubahMahasiswa.php?id=<?= $row["id"]; ?>">
+                                            <a type="button" class="btn btn-warning" href="ubahUser.php?id=<?= $row["id"]; ?>">
                                                 Ubah
                                             </a> <br>
 
                                             <!-- Hapus Mahasiswa -->
-                                            <a type="button" class="btn btn-danger mt-1" href="hapusMahasiswa.php?id=<?= $row["id"];?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
+                                            <a type="button" class="btn btn-danger mt-1" href="hapusUser.php?id=<?= $row["id"];?>" onclick="return confirm('Yakin hapus data user ini?');">
                                                 Hapus
                                             </a>
                                         </td>
@@ -108,7 +108,7 @@ if (isset($_POST["tambahMahasiswa"])) {
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Mahasiswa</h4>
+                        <h4 class="modal-title">Tambah User</h4>
                     </div>
 
                     <!-- Modal body -->
