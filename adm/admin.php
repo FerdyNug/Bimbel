@@ -1,5 +1,5 @@
 <?php
-require 'template/header.php';
+require 'header.php';
 $admin = query("SELECT * FROM user");
 
 if (isset($_POST["register"])) {
@@ -17,7 +17,7 @@ if (isset($_POST["register"])) {
 ?>
 <div id="layoutSidenav">
     <?php
-    require('template/sidebar.php');
+    require('sidebar.php');
     ?>
     <div id="layoutSidenav_content">
         <main>
@@ -30,8 +30,6 @@ if (isset($_POST["register"])) {
                         <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
                             Tambah Admin
                         </button>
-
-                        <a href="export.php" class="btn btn-info text-white">Export Data</a>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -69,7 +67,7 @@ if (isset($_POST["register"])) {
             </div>
         </main>
         <?php
-        require('template/footer.php');
+        require('footer.php');
         ?>
 
         <!-- Modal Tambah Mahasiswa -->

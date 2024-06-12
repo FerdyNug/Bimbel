@@ -1,6 +1,6 @@
 <?php
 
-require 'template/header.php';
+require 'header.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
 
 // tombol cari ditekan
@@ -16,14 +16,14 @@ if (isset($_POST["tambahMahasiswa"])) {
         echo "
             <script>
                 alert('data berhasil ditambahkan!');
-                document.location.href = 'mahasiswa.php';
+                document.location.href = 'user.php';
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('data gagal ditambahkan!');
-                document.location.href = 'mahasiswa.php';
+                document.location.href = 'user.php';
             </script>
         ";
     }
@@ -34,7 +34,7 @@ if (isset($_POST["tambahMahasiswa"])) {
 <div id="layoutSidenav">
 
     <?php
-    require('template/sidebar.php');
+    require('sidebar.php');
     ?>
 
     <div id="layoutSidenav_content">
@@ -49,7 +49,7 @@ if (isset($_POST["tambahMahasiswa"])) {
                             Tambah User
                         </button>
 
-                        <a href="export.php" class="btn btn-info text-white">Export Data</a>
+                        <a href="export/export.php" class="btn btn-info text-white">Export Data</a>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -81,7 +81,7 @@ if (isset($_POST["tambahMahasiswa"])) {
                                             </a> <br>
 
                                             <!-- Hapus Mahasiswa -->
-                                            <a type="button" class="btn btn-danger mt-1" href="hapusUser.php?id=<?= $row["id"];?>" onclick="return confirm('Yakin hapus data user ini?');">
+                                            <a type="button" class="btn btn-danger mt-1" href="hapus/hapusUser.php?id=<?= $row["id"];?>" onclick="return confirm('Yakin hapus data user ini?');">
                                                 Hapus
                                             </a>
                                         </td>
@@ -98,7 +98,7 @@ if (isset($_POST["tambahMahasiswa"])) {
             </div>
         </main>
         <?php
-        require('template/footer.php');
+        require('footer.php');
         ?>
 
         <!-- Modal Tambah Mahasiswa -->

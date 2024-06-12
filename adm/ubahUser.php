@@ -17,14 +17,14 @@ if (isset($_POST["ubahMahasiswa"])) {
         echo "
             <script>
                 alert('data berhasil diubah!');
-                document.location.href = 'mahasiswa.php';
+                document.location.href = '../user.php';
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('data gagal diubah!');
-                document.location.href = 'mahasiswa.php';
+                document.location.href = '../user.php';
             </script>
         ";
     }
@@ -41,10 +41,10 @@ if (isset($_POST["ubahMahasiswa"])) {
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Ubah data Mahasiswa</h1>
+                <h1 class="mt-4">Ubah data User</h1>
                 <!-- Button to Open Modal Tambah-->
-                <a type="button" class="btn btn-primary text-white mt-2 mb-2" href="mahasiswa.php">
-                    Kembali ke halaman mahasiswa
+                <a type="button" class="btn btn-primary text-white mt-2 mb-2" href="user.php">
+                    Kembali ke halaman User
                 </a>
                 
                 <table>

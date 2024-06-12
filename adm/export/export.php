@@ -1,6 +1,6 @@
 <?php
 //import koneksi ke database
-require 'inc/functions.php';
+require '../inc/functions.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 <html>

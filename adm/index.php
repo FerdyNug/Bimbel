@@ -5,12 +5,12 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-require 'template/header.php';
+require 'header.php';
 
 ?>
 <div id="layoutSidenav">
     <?php
-    require('template/sidebar.php');
+    require('sidebar.php');
     ?>
     <div id="layoutSidenav_content">
         <main>
@@ -22,5 +22,5 @@ require 'template/header.php';
             </div>
         </main>
         <?php
-        require('template/footer.php');
+        require('footer.php');
         ?>

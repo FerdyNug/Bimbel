@@ -1,10 +1,10 @@
 <?php
-require 'template/header.php';
+require 'header.php';
 
 ?>
 <div id="layoutSidenav">
     <?php
-    require('template/sidebar.php');
+    require('sidebar.php');
     ?>
     <div id="layoutSidenav_content">
         <main>
@@ -59,5 +59,5 @@ require 'template/header.php';
 </main>
 
 <?php
-require('template/footer.php');
+require('footer.php');
 ?>
