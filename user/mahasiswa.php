@@ -1,15 +1,15 @@
 <?php
 
 require 'header.php';
-$mahasiswa = query("SELECT * FROM mahasiswa");
+$user = query("SELECT * FROM t_user");
 
 // tombol cari ditekan
 if (isset($_POST["cari"])) {
-    $mahasiswa = cari($_POST["keyword"]);
+    $user = cari($_POST["keyword"]);
 }
 
 // Tambah Mahasiswa
-if (isset($_POST["tambahMahasiswa"])) {
+if (isset($_POST["tambahUser"])) {
 
     // cek apakah data berhasil ditambahkan atau tidak
     if (tambah($_POST) > 0) {
@@ -40,13 +40,13 @@ if (isset($_POST["tambahMahasiswa"])) {
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Data Anggota</h1>
+                <h1 class="mt-4">Data User</h1>
                 <div class="card mb-4 mt-5">
                     <div class="card-header">
 
                         <!-- Button to Open Modal Tambah-->
                         <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                            Tambah Anggota
+                            Tambah User
                         </button>
 
                         <a href="export.php" class="btn btn-info text-white">Export Data</a>
@@ -56,23 +56,25 @@ if (isset($_POST["tambahMahasiswa"])) {
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>NRP</th>
-                                    <th>Nama</th>
                                     <th>Email</th>
-                                    <th>Jurusan</th>
+                                    <th>Nama Panggilan</th>
+                                    <th>Nama Lengkap</th>
+                                    <th>Provinsi</th>
+                                    <th>Kabupaten</th>
                                     <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($mahasiswa as $row) : ?>
+                                <?php foreach ($user as $row) : ?>
                                     <tr>
                                         <td><?= $i; ?> </td>
-                                        <td><?= $row["nrp"]; ?></td>
-                                        <td><?= $row["nama"]; ?></td>
                                         <td><?= $row["email"]; ?></td>
-                                        <td><?= $row["jurusan"]; ?></td>
+                                        <td><?= $row["nama_panggilan"]; ?></td>
+                                        <td><?= $row["nama_lengkap"]; ?></td>
+                                        <td><?= $row["provinsi"]; ?></td>
+                                        <td><?= $row["kabupaten"]; ?></td>
                                         <td><img src="img/<?= $row["gambar"]; ?>" alt="" width="60"></td>
                                         <td>
                                             <!-- Ubah Mahasiswa -->
@@ -81,7 +83,7 @@ if (isset($_POST["tambahMahasiswa"])) {
                                             </a> <br>
 
                                             <!-- Hapus Mahasiswa -->
-                                            <a type="button" class="btn btn-danger mt-1" href="hapusMahasiswa.php?id=<?= $row["id"];?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
+                                            <a type="button" class="btn btn-danger mt-1" href="hapusMahasiswa.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data user ini?');">
                                                 Hapus
                                             </a>
                                         </td>
@@ -108,19 +110,20 @@ if (isset($_POST["tambahMahasiswa"])) {
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Mahasiswa</h4>
+                        <h4 class="modal-title">Tambah User</h4>
                     </div>
 
                     <!-- Modal body -->
                     <form method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                            <input type="number" name="nrp" class="mb-3 form-control" placeholder="NRP" required>
-                            <input type="text" name="nama" placeholder="Nama Mahasiswa" class="mb-3 form-control mb" required>
-                            <input type="email" name="email" placeholder="Email" class="mb-3 form-control mb" required>
-                            <input type="text" name="jurusan" placeholder="Jurusan" class="mb-3 form-control mb" required>
+                            <input type="email" name="email" class="mb-3 form-control" placeholder="Email" required>
+                            <input type="text" name="nama_panggilan" placeholder="Nama Panggilan" class="mb-3 form-control mb" required>
+                            <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" class="mb-3 form-control mb" required>
+                            <input type="text" name="provinsi" placeholder="Provinsi" class="mb-3 form-control mb" required>
+                            <input type="text" name="kabupaten" placeholder="Kabupaten" class="mb-3 form-control mb" required>
                             <input type="file" name="gambar" class="mb-3">
                             <br>
-                            <button type="submit" class=" btn btn-primary mb" name="tambahMahasiswa">Tambah</button>
+                            <button type="submit" class=" btn btn-primary mb" name="tambahUser">Tambah</button>
                         </div>
                     </form>
 

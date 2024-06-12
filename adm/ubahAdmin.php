@@ -1,12 +1,11 @@
 <?php
 
 require 'header.php';
-$admin = query("SELECT * FROM user");
 
 // ambil data di URL
 $id = $_GET["id"];
 // query data mahasiswa berdasarkan id
-$adm = query("SELECT * FROM user WHERE id = $id")[0];
+$adm = query("SELECT * FROM t_admin WHERE id = $id")[0];
 
 
 // cek apakah tombol submit sudah ditekan atau belum

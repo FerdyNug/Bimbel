@@ -1,12 +1,12 @@
 <?php
 require 'header.php';
-$admin = query("SELECT * FROM user");
+$admin = query("SELECT * FROM t_admin");
 
 if (isset($_POST["register"])) {
 
     if (registrasi($_POST) > 0) {
         echo "<script>
-                alert('user baru berhasil ditambahkan');
+                alert('admin baru berhasil ditambahkan');
                 document.location.href = 'admin.php';
                 </script>";
     } else {
