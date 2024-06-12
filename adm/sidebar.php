@@ -9,7 +9,11 @@
                             </a>
                             <a class="nav-link" href="mahasiswa.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Mahasiswa
+                                Anggota
+                            </a>
+                            <a class="nav-link" href="tryout.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Tryout
                             </a>
                             <a class="nav-link" href="admin.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
