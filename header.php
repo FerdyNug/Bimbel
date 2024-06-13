@@ -17,23 +17,22 @@ require 'inc/functions.php';
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-light border-bottom">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
+    <!-- Akhir Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container my-2">
+            <a href="index.php">
                 <img src="img/logo.png" alt="Bootstrap" width="30" height="40">
             </a>
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                </div>
+            <div class="btn-group">
+                <a href="#"><i class="bi bi-bell-fill text-primary me-4 align-middle fs-3"></i></a>
+                <a href="#menudropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <img class="rounded-circle" src="img/deadPool.png" alt="" style="width: 40px; height: 40px;">
+                </a>
+                <ul class="dropdown-menu" id="menudropdown">
+                    <li><a class="dropdown-item" href="#">Akun</a></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
             </div>
+        </div>
     </nav>
-    <!-- Akhir Navbar -->
+</body>
