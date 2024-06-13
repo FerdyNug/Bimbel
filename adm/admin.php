@@ -70,7 +70,7 @@ if (isset($_POST["register"])) {
         require('footer.php');
         ?>
 
-        <!-- Modal Tambah Mahasiswa -->
+        <!-- Modal Tambah Admin -->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
