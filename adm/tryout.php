@@ -1,6 +1,19 @@
 <?php
 require 'header.php';
+$ptryout = query("SELECT * FROM t_ptryout");
 
+// input paket tryout ke database
+if (isset($_POST["tambahPT"])) {
+
+    if (tambahPT($_POST) > 0) {
+        echo "<script>
+                alert('Paket Tryout baru berhasil ditambahkan');
+                document.location.href = 'tryout.php';
+                </script>";
+    } else {
+        echo 'eror';
+    }
+}
 ?>
 <div id="layoutSidenav">
     <?php
@@ -17,7 +30,7 @@ require 'header.php';
                         <div class="card mb-4 mt-4">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                                    Tambah Event
+                                    Tambah Paket
                                 </button>
                             </div>
                             <div class="card-body">
@@ -25,23 +38,27 @@ require 'header.php';
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Keterangan 1</th>
+                                            <th>Gambar</th>
                                             <th>Judul</th>
-                                            <th>Waktu</th>
-                                            <th>Periode</th>
+                                            <th>Rating</th>
+                                            <th>Peserta</th>
+                                            <th>Harga</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($ptryout as $row) : ?>
                                         <tr>
-                                            <td>No</td>
-                                            <td>Sendang Berlangsung / Segera</td>
-                                            <td>Judul Event</td>
-                                            <td>Waktu Event</td>
-                                            <td>Periode</td>
+                                            <td><?= $i; ?></td>
+                                            <td><?= $row["gambar"]; ?></td>
+                                            <td><?= $row["judul"]; ?></td>
+                                            <td><?= $row["rank"]; ?></td>
+                                            <td><?= $row["peserta"]; ?></td>
+                                            <td>99.<?= $row["harga"]; ?></td>
                                             <td>
                                                 <!-- Ubah Mahasiswa -->
-                                                <a type="button" class="btn btn-warning" href="../user/ubahMahasiswa.php?id=<?= $row["id"]; ?>">
+                                                <a type="button" class="btn btn-warning" href="ubahTryout.php">
                                                     Ubah
                                                 </a> <br>
 
@@ -51,6 +68,8 @@ require 'header.php';
                                                 </a>
                                             </td>
                                         </tr>
+                                        <?php $i++; ?>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -68,3 +87,36 @@ require 'header.php';
 <?php
 require('footer.php');
 ?>
+
+<!-- Modal Tambah Admin -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Paket Tryout</h4>
+            </div>
+
+            <!-- Modal body -->
+            <form method="post">
+                <div class="modal-body">
+                    <input type="file" name="gambar" id="gambar">
+                    <input type="text" name="judul" id="judul" class="mb-3 form-control" placeholder="Judul" required>
+                    <select class="form-group" name="rating" id="rating">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                    </select>
+                    <input type="number" name="peserta" id="peserta" placeholder="Peserta" class="mb-3 form-control mb" required>
+                    <input type="number" name="harga" id="harga" placeholder="Harga" class="mb-3 form-control mb" required>
+                    <br>
+                    <button type="submit" class=" btn btn-primary mb" name="tambahPT">Tambah</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

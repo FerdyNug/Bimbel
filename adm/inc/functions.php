@@ -192,3 +192,66 @@ function ubahAdmin($data)
 
     return mysqli_affected_rows($conn);
 }
+
+
+// TRYOUT
+
+function tambahPT($data)
+{
+    global $conn;
+    // ambil data dari tiap elemen dalam form
+    $gambar = htmlspecialchars($data["gambar"]);
+    $judul = htmlspecialchars($data["judul"]);
+    $rank = htmlspecialchars($data["rating"]);
+    $peserta = htmlspecialchars($data["peserta"]);
+    $harga = htmlspecialchars($data["harga"]);
+
+    // upload gambar
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
+
+    // validasi udah ada atau belum
+    $cek = mysqli_query($conn, "SELECT * FROM t_ptryout WHERE judul='$judul'");
+    $hitung = mysqli_num_rows($cek);
+
+    if ($hitung < 1) {
+        // query insert data
+        $query = "INSERT INTO t_ptryout VALUES ('', '$gambar', '$judul', '', '$rank', '$peserta', '$harga')";
+        mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
+}
+
+// BIMBEL
+
+function tambahPB($data)
+{
+    global $conn;
+    // ambil data dari tiap elemen dalam form
+    $gambar = htmlspecialchars($data["gambar"]);
+    $judul = htmlspecialchars($data["judul"]);
+    $rank = htmlspecialchars($data["rating"]);
+    $peserta = htmlspecialchars($data["peserta"]);
+    $harga = htmlspecialchars($data["harga"]);
+
+    // upload gambar
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
+
+    // validasi udah ada atau belum
+    $cek = mysqli_query($conn, "SELECT * FROM t_pbimbel WHERE judul='$judul'");
+    $hitung = mysqli_num_rows($cek);
+
+    if ($hitung < 1) {
+        // query insert data
+        $query = "INSERT INTO t_pbimbel VALUES ('', '$gambar', '$judul', '', '$rank', '$peserta', '$harga')";
+        mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
+}
