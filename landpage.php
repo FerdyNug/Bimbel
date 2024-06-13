@@ -33,10 +33,10 @@ require 'header.php';
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 300px;">
+                        <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 300px;">
+                        <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
                     </div>
                 </div>
             </div>
@@ -113,24 +113,27 @@ require 'header.php';
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="div rounded bg-secondary p-2">
+                    <div class="div rounded bg-success bg-opacity-50 p-2">
                         <div class="div p-1">
+                            <div class="d-inline-flex bg-warning text-white p-2 rounded-pill my-2">Sedang Berlangsung</div>
                             <h3>Tryout SKD</h3>
                             <p>15 - 16 Juni 2024</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="div rounded bg-secondary p-2">
+                    <div class="div rounded bg-secondary bg-opacity-50 p-2">
                         <div class="div p-1">
+                            <div class="d-inline-flex bg-danger text-white p-2 rounded-pill my-2">Segera Hadir</div>
                             <h3>Tryout SKD</h3>
                             <p>15 - 16 Juni 2024</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="div rounded bg-secondary p-2">
+                    <div class="div rounded bg-secondary bg-opacity-50 p-2">
                         <div class="div p-1">
+                            <div class="d-inline-flex bg-danger text-white p-2 rounded-pill my-2">Segera Hadir</div>
                             <h3>Tryout SKD</h3>
                             <p>15 - 16 Juni 2024</p>
                         </div>
@@ -142,7 +145,37 @@ require 'header.php';
     <!-- Akhir Event Tryout Gratis -->
 
     <!-- Bantuan Cepat -->
+    <section>
+        <div class="container my-3">
+            <div class="row">
+                <h1>Bantuan Cepat</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="p-2 border rounded-3">
+                        <h2>Hubungi Kami</h2>
+                        <p>Harap hubungi kami</p>
+                        <hr>
+                        <div class="container rounded bg-success text-white text-center py-2">
+                            <h2>Hubungi Kami</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-2 border rounded-3">
+                        <h2>Panduan</h2>
+                        <p>Harap membaca panduan terlebih dahulu</p>
+                        <hr>
+                        <div class="container rounded bg-success text-white text-center py-2">
+                            <h2>Panduan</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Akhir Bantuan Cepat -->
+
 </body>
 
 </html>
