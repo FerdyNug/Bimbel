@@ -35,7 +35,7 @@ require 'header.php';
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-2">
-                    <a href="detailTryout" class="text-decoration-none text-dark">
+                    <a href="detailTryout.php" class="text-decoration-none text-dark">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-inline-flex bg-success text-white p-2 rounded-pill my-2">CPNS</div>
@@ -46,7 +46,7 @@ require 'header.php';
                     </a>
                 </div>
                 <div class="col-md-4 mb-2">
-                    <a href="detailTryout" class="text-decoration-none text-dark">
+                    <a href="detailTryout.php" class="text-decoration-none text-dark">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-inline-flex bg-success text-white p-2 rounded-pill my-2">CPNS</div>
@@ -57,7 +57,7 @@ require 'header.php';
                     </a>
                 </div>
                 <div class="col-md-4 mb-2">
-                    <a href="detailTryout" class="text-decoration-none text-dark">
+                    <a href="detailTryout.php" class="text-decoration-none text-dark">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-inline-flex bg-success text-white p-2 rounded-pill my-2">CPNS</div>
@@ -68,7 +68,7 @@ require 'header.php';
                     </a>
                 </div>
                 <div class="col-md-4 mb-2">
-                    <a href="detailTryout" class="text-decoration-none text-dark">
+                    <a href="detailTryout.php" class="text-decoration-none text-dark">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-inline-flex bg-success text-white p-2 rounded-pill my-2">CPNS</div>
