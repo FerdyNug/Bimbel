@@ -1,5 +1,5 @@
 <?php
-// require 'inc/session.php';
+require 'inc/session.php';
 require 'header.php';
 ?>
 

@@ -60,8 +60,12 @@
                         Persiapkan Diri<br>
                         Menghadapi Ujian</p>
                     <div class="grid text-start">
-                        <div class="g-col btn btn-success fw-bold fs-5" href="login.php">Gabung Sekarang</div>
-                        <div class="g-col btn btn-success fw-bold fs-5" href="login.php">Masuk</div>
+                        <a href="masuk.php" class="text-decoration-none">
+                            <div class="g-col btn btn-success fw-bold fs-5" href="masuk.php">Gabung Sekarang</div>
+                        </a>
+                        <a href="masuk.php" class="text-decoration-none">
+                            <div class="g-col btn btn-success fw-bold fs-5" href="masuk.php">Masuk</div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -70,13 +74,13 @@
     <!-- Akhir Highlight -->
 
     <!-- Tentang -->
-    <section id="tentang" class="tentang">
+    <section class="tentang">
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-5 text-center">
                 </div>
                 <div class="col-md-7 text-start">
-                    <p class="title-section">Tentang Kami</p>
+                    <p class="title-section" id="tentang">Tentang Kami</p>
                     <p class="text-tentang">Adalah website layanan belajar dan tryout CPNS dan Sekolah Kedinasan untuk persiapan tes CPNS dan Sekolah Kedinasan.<br><br>
                         juga tersedia informasi, materi, soal, dan tryout online CPNS dan Sekolah Kedinasan gratis untuk mempersiapkan diri dalam menghadapi seleksi CPNS dan Sekolah Kedinasan.</p>
                 </div>
@@ -86,11 +90,11 @@
     <!-- Akhir Tentang -->
 
     <!-- Produk -->
-    <section id="produk" class="produk">
+    <section class="produk">
         <div class="container mt-5">
             <div class="row text-center mb-3">
                 <div class="col" id="produk">
-                    <h2 class="title-section">Produk Kami</h2>
+                    <h2 class="title-section" id="produk">Produk Kami</h2>
                 </div>
             </div>
             <div class="row g-4">
@@ -118,11 +122,11 @@
     <!-- Akhir Produk -->
 
     <!-- Keunggulan -->
-    <section id="keunggulan" class="keunggulan">
+    <section class="keunggulan">
         <div class="container mt-5">
             <div class="row text-center mb-3">
                 <div class="col">
-                    <h2 class="title-section">Keunggulan</h2>
+                    <h2 class="title-section" id="keunggulan">Keunggulan</h2>
                 </div>
             </div>
             <div class="bg-success pb-5 pt-5 text-white border border-5 rounded border-white shadow">
@@ -164,11 +168,11 @@
     <!-- Akhir Testimoni -->
 
     <!-- Paket -->
-    <section id="paket">
+    <section>
         <div class="container mt-5">
             <div class="row text-center mb-3">
                 <div class="col" id="produk">
-                    <h2 class="title-section">Pilihan Paket</h2>
+                    <h2 class="title-section" id="paket">Pilihan Paket</h2>
                 </div>
             </div>
             <div class="row g-4">

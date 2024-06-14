@@ -30,7 +30,7 @@ require 'inc/functions.php';
                 </a>
                 <ul class="dropdown-menu" id="menudropdown">
                     <li><a class="dropdown-item" href="#">Akun</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="keluar.php">Logout</a></li>
                 </ul>
             </div>
         </div>

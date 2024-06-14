@@ -1,5 +1,4 @@
 <?php
-require 'inc/fungsi.php';
 require 'header.php';
 
 ?>
@@ -45,7 +44,7 @@ require 'header.php';
                                             <input class="form-control" type="password" name="password2" id="password2">
                                             <label for="password2">Konfirmasi Password</label>
                                         </div>
-                                        <input type="file" name="gambar" id="gambar">                                        
+                                        <input type="file" name="gambar" id="gambar">
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <button class="btn btn-primary" type="submit" name="daftarUser">Daftar</button>
                                         </div>
