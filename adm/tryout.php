@@ -13,7 +13,7 @@ require('sidebar.php');
             <h1 class="mt-4">Tryout</h1>
             <div class="card mb-4">
                 <div class="card-header">
-                    <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#myModal">
                         Tambah Paket
                     </button>
                 </div>
@@ -41,7 +41,7 @@ require('sidebar.php');
                                     $rating = $row['rank'];
                                     $peserta = $row['peserta'];
                                     $harga = $row['harga'];
-                                    $idb = $row['id'];
+                                    $id = $row['id'];
 
                                     // cek ada gambar atau tidak
                                     $gambar = $row['gambar']; //ambil gambar
@@ -63,19 +63,16 @@ require('sidebar.php');
                                         <td><?= $harga; ?></td>
                                         <td>
                                             <!-- Ubah Paket Tryout -->
-                                            <a type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?= $row["id"]; ?>">
+                                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $id; ?>">
                                                 Ubah
                                             </a> <br>
 
                                             <!-- Hapus Paket Tryout -->
-                                            <a type="button" class="btn btn-danger mt-1" data-bs-toggle="modal" data-bs-target="#delete<?= $row["id"]; ?>">
+                                            <a type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete<?= $id; ?>">
                                                 Hapus
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php
-                                    }
-                                    ?>
 
                                     <!-- Modal Edit Paket Tryout -->
                                     <div class="modal fade" id="edit<?= $row["id"]; ?>">
@@ -92,19 +89,19 @@ require('sidebar.php');
                                                 <form method="post" enctype="multipart/form-data">
                                                     <div class="modal-body">
                                                         <input type="file" name="gambar" class="mb-3">
-                                                        <input type="text" name="judul" value="<?= $row["judul"]; ?>" class="mb-3 form-control mb" required>
+                                                        <input type="text" name="judul" value="<?= $judul; ?>" class="mb-3 form-control mb" required>
                                                         <select class="form-control mb-3" name="rating" id="rating">
-                                                            <option value="">Rating Sebelumnya: <?= $row["rank"]; ?></option>
+                                                            <option value="">Rating Sebelumnya: <?= $rating; ?></option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
                                                             <option value="4">4</option>
                                                             <option value="5">5</option>
                                                         </select>
-                                                        <input type="number" name="peserta" value="<?= $row["peserta"]; ?>" class="mb-3 form-control mb" required>
-                                                        <input type="number" name="harga" value="<?= $row["harga"]; ?>" class="mb-3 form-control mb" required>
+                                                        <input type="number" name="peserta" value="<?= $peserta; ?>" class="mb-3 form-control mb" required>
+                                                        <input type="number" name="harga" value="<?= $harga; ?>" class="mb-3 form-control mb" required>
 
-                                                        <input type="hidden" name="id" value="<?= $row["id"]; ?>">
+                                                        <input type="hidden" name="id" value="<?= $id; ?>">
                                                         <button type="submit" class="mb-3 btn btn-primary mb" name="updatePT">Ubah</button>
                                                     </div>
                                                 </form>
@@ -114,7 +111,7 @@ require('sidebar.php');
                                     </div>
 
                                     <!-- Modal hapus Paket Tryout -->
-                                    <div class="modal fade" id="delete<?= $row["id"]; ?>">
+                                    <div class="modal fade" id="delete<?= $id; ?>">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
 
@@ -127,8 +124,8 @@ require('sidebar.php');
                                                 <!-- Modal body -->
                                                 <form method="post">
                                                     <div class="modal-body">
-                                                        Apakah Anda yakin ingin menghapus <?= $row["judul"]; ?>?
-                                                        <input type="hidden" name="id" value="<?= $row["id"]; ?>">
+                                                        Apakah Anda yakin ingin menghapus <?= $judul; ?>?
+                                                        <input type="hidden" name="id" value="<?= $id; ?>">
                                                         <br> <br>
                                                         <button type="submit" class="mb-3 btn btn-danger mb" name="hapusPT">Hapus</button>
                                                     </div>
@@ -137,6 +134,12 @@ require('sidebar.php');
                                             </div>
                                         </div>
                                     </div>
+
+                                    <?php
+                                    }
+                                    ?>
+
+                                    
                             </tbody>
                         </table>
                     </div>

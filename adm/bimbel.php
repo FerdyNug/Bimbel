@@ -12,7 +12,7 @@ require('sidebar.php');
             <div class="card mb-4 mt-4">
 
                 <div class="card-header">
-                    <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#myModal">
                         Tambah Paket
                     </button>
                 </div>
@@ -42,12 +42,12 @@ require('sidebar.php');
                                         <td>99.<?= $row["harga"]; ?></td>
                                         <td>
                                             <!-- Ubah Paket Bimbel -->
-                                            <a type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit<?= $row["id"]; ?>">
+                                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $row["id"]; ?>">
                                                 Ubah
                                             </a> <br>
 
                                             <!-- Hapus Paket Bimbel -->
-                                            <a type="button" class="btn btn-danger mt-1" data-bs-toggle="modal" data-bs-target="#delete<?= $row["id"]; ?>">
+                                            <a type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete<?= $row["id"]; ?>">
                                                 Hapus
                                             </a>
                                         </td>
