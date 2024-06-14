@@ -1,0 +1,111 @@
+//Menambah barang
+if(isset($_POST['tambahbarangbaru'])){
+    $namabarang = $_POST['namabarang'];
+    $deskripsi = $_POST['deskripsi'];
+    $stock = $_POST['stock'];
+
+    //Gambar
+    $allowed_extension = array('png','jpg','jpeg');
+    $nama = $_FILES['file']['name']; //ngambil nama file gambar
+    $dot = explode('.',$nama);
+    $ekstensi = strtolower(end($dot)); //mengambil ekstensi
+    $ukuran = $_FILES['file']['size']; // mengambil size file
+    $file_tmp = $_FILES['file']['tmp_name']; //mengambil lokasi filenya
+
+    //penamaan file -> enkripsi
+    $image = md5(uniqid($nama,true) . time()).'.'.$ekstensi; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+
+    // validasi udah ada atau belum
+    $cek = mysqli_query($conn,"select * from stock where namabarang='$namabarang'");
+    $hitung = mysqli_num_rows($cek);
+
+    if($hitung<1){
+        // Jika belum ada
+        
+        //proses upload gambar
+        if(in_array($ekstensi, $allowed_extension) === true){
+            //  Validasi ukuran file
+            if($ukuran < 15000000){
+                move_uploaded_file($file_tmp, 'images/'.$image);
+
+                $addtotable = mysqli_query($conn, "insert into stock (namabarang, deskripsi, stock, image) values ('$namabarang','$deskripsi','$stock','$image')");
+                if($addtotable){
+                    header('location:masuk.php');
+                } else {
+                    echo 'Gagal memasukkan data ke database';
+                    header('location:login.php');
+                }
+            } else {
+                // Jika file lebih dari 15mb
+                echo '
+                <script>
+                    alert("Ukuran file tidak boleh lebih dari 15mb");
+                    widow.location.href="login.php";
+                </script>
+                ';
+            }
+        } else {
+            // Jika file tidak png/jpg/jpeg
+            echo '
+            <script>
+                alert("File harus png/jpg/jpeg");
+                widow.location.href="login.php";
+            </script>
+                ';
+        }
+
+    } else {
+        // Jika nama barang sudah terdaftar
+        echo '
+        <script>
+            alert("Nama barang sudah terdaftar");
+            widow.location.href="login.php";
+        </script>
+        ';
+    }
+
+    
+};
+
+
+function tambahPT($data){
+    global $conn;
+    // ambil data dari tiap elemen dalam form
+    $gambar = htmlspecialchars($data["gambar"]);
+    $judul = htmlspecialchars($data["judul"]);
+    $rank = htmlspecialchars($data["rating"]);
+    $peserta = htmlspecialchars($data["peserta"]);
+    $harga = htmlspecialchars($data["harga"]);
+
+    // upload gambar
+    $gambar = upload();
+    if (!$gambar) {
+        return false;
+    }
+
+    // validasi sudah ada atau belum
+    $cek = mysqli_query($conn, "SELECT * FROM t_ptryout WHERE judul='$judul'");
+    $hitung = mysqli_num_rows($cek);
+
+    if ($hitung < 1) {
+        // query insert data
+        $query = "INSERT INTO t_ptryout VALUES ('', '$gambar', '$judul', '$rank', '$peserta', '$harga')";
+        mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
+}
+
+// input paket tryout ke database
+if (isset($_POST["tambahPT"])) {
+
+    if (tambahPT($_POST) > 0) {
+        echo "<script>
+                alert('Paket Tryout baru berhasil ditambahkan');
+                document.location.href = 'tryout.php';
+                </script>";
+    } else {
+        echo 'error';
+    }
+}
+?>

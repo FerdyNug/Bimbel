@@ -13,7 +13,6 @@ function query($query)
     return $rows;
 }
 
-
 function tambah($data)
 {
     global $conn;
@@ -196,62 +195,328 @@ function ubahAdmin($data)
 
 // TRYOUT
 
-function tambahPT($data)
-{
-    global $conn;
-    // ambil data dari tiap elemen dalam form
-    $gambar = htmlspecialchars($data["gambar"]);
-    $judul = htmlspecialchars($data["judul"]);
-    $rank = htmlspecialchars($data["rating"]);
-    $peserta = htmlspecialchars($data["peserta"]);
-    $harga = htmlspecialchars($data["harga"]);
+//Tambah Paket Tryout
+if (isset($_POST['tambahPT'])) {
+    $judul = $_POST['judul'];
+    $rank = $_POST['rating'];
+    $peserta = $_POST['peserta'];
+    $harga = $_POST['harga'];
 
-    // upload gambar
-    $gambar = upload();
-    if (!$gambar) {
-        return false;
-    }
+    //Gambar
+    $allowed_extension = array('png', 'jpg', 'jpeg');
+    $nama = $_FILES['gambar']['name']; //ngambil nama file gambar
+    $dot = explode('.', $nama);
+    $ekstensi = strtolower(end($dot)); //mengambil ekstensi
+    $ukuran = $_FILES['gambar']['size']; // mengambil size file
+    $file_tmp = $_FILES['gambar']['tmp_name']; //mengambil lokasi filenya
 
-    // validasi udah ada atau belum
-    $cek = mysqli_query($conn, "SELECT * FROM t_ptryout WHERE judul='$judul'");
+    //penamaan file -> enkripsi
+    $image = md5(uniqid($nama, true) . time()) . '.' . $ekstensi; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+
+    // validasi sudah ada atau belum
+    $cek = mysqli_query($conn, "select * from t_ptryout where judul='$judul'");
     $hitung = mysqli_num_rows($cek);
 
     if ($hitung < 1) {
-        // query insert data
-        $query = "INSERT INTO t_ptryout VALUES ('', '$gambar', '$judul', '', '$rank', '$peserta', '$harga')";
-        mysqli_query($conn, $query);
+        // Jika belum ada
+        //proses upload gambar
+        if (in_array($ekstensi, $allowed_extension) === true) {
+            //  Validasi ukuran file
+            if ($ukuran < 15000000) {
+                move_uploaded_file($file_tmp, 'img/' . $image);
+                $addtotable = mysqli_query($conn, "insert into t_ptryout (gambar, judul, rank, peserta, harga) values ('$image','$judul','$rank','$peserta', '$harga')");
+                if ($addtotable) {
+                    echo '
+                    <script>
+                        alert("Berhasil memasukkan Paket Tryout");
+                        widow.location.href="tryout.php";
+                    </script>
+                    ';
+                } else {
+                    echo 'Gagal memasukkan paket ke database';
+                    header('location:tryout.php');
+                }
+            } else {
+                // Jika file lebih dari 15mb
+                echo '
+                <script>
+                    alert("Ukuran gambar tidak boleh lebih dari 15mb");
+                    widow.location.href="tryout.php";
+                </script>
+                ';
+            }
+        } else {
+            // Jika gambar tidak png/jpg/jpeg
+            echo '
+            <script>
+                alert("gambar harus png/jpg/jpeg");
+                widow.location.href="tryout.php";
+            </script>
+                ';
+        }
+    } else {
+        // Jika judul sudah terdaftar
+        echo '
+        <script>
+            alert("judul sudah terdaftar");
+            widow.location.href="tryout.php";
+        </script>
+        ';
+    }
+};
 
-        return mysqli_affected_rows($conn);
+//Hapus Paket Tryout
+if (isset($_POST['hapusPT'])) {
+    $id = $_POST['id'];
+
+    $gambar = mysqli_query($conn, "select * from t_ptryout where id='$id'");
+    $get = mysqli_fetch_array($gambar);
+    $img = 'img/' . $get['gambar'];
+    unlink($img);
+
+    $hapus = mysqli_query($conn, "delete from t_ptryout where id='$id'");
+    if ($hapus) {
+        echo '
+        <script>
+            alert("Berhasil menghapus Paket Tryout");
+            widow.location.href="tryout.php";
+        </script>
+        ';
+    } else {
+        echo '
+        <script>
+            alert("Gagal menghapus Paket Tryout");
+            widow.location.href="tryout.php";
+        </script>
+        ';
+    }
+};
+
+//Update Paket Tryout
+if (isset($_POST['updatePT'])) {
+    $id = $_POST['id'];
+    $judul = $_POST['judul'];
+    $rating = $_POST['rating'];
+    $peserta = $_POST['peserta'];
+    $harga = $_POST['harga'];
+
+    //Gambar
+    $allowed_extension = array('png', 'jpg', 'jpeg');
+    $nama = $_FILES['gambar']['name']; //ngambil nama file gambar
+    $dot = explode('.', $nama);
+    $ekstensi = strtolower(end($dot)); //mengambil ekstensi
+    $ukuran = $_FILES['gambar']['size']; // mengambil size file
+    $file_tmp = $_FILES['gambar']['tmp_name']; //mengambil lokasi filenya
+
+    //penamaan file -> enkripsi
+    $image = md5(uniqid($nama, true) . time()) . '.' . $ekstensi; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+
+    if ($ukuran == 0) {
+        //jika tidak ingin upload
+        $update = mysqli_query($conn, "update t_ptryout set judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
+        if ($update) {
+            echo '
+            <script>
+                alert("Berhasil Mengupdate Paket Tryout");
+                widow.location.href="tryout.php";
+            </script>
+            ';
+        } else {
+            echo '
+            <script>
+                alert("Gagal Mengupdate Paket Tryout");
+                widow.location.href="tryout.php";
+            </script>
+            ';
+        }
+    } else {
+        //Jika ingin upload
+        $gambar = mysqli_query($conn, "select * from t_ptryout where id='$id'");
+        $get = mysqli_fetch_array($gambar);
+        $img = 'img/' . $get['gambar'];
+        unlink($img);
+
+        move_uploaded_file($file_tmp, 'img/' . $image);
+        $update = mysqli_query($conn, "update t_ptryout set gambar='$image', judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
+        if ($update) {
+            echo '
+            <script>
+                alert("Berhasil Mengupdate Paket Tryout");
+                widow.location.href="tryout.php";
+            </script>
+            ';
+        } else {
+            echo '
+            <script>
+                alert("Gagal Mengupdate Paket Tryout");
+                widow.location.href="tryout.php";
+            </script>
+            ';
+        }
     }
 }
 
+
+
 // BIMBEL
 
-function tambahPB($data)
-{
-    global $conn;
-    // ambil data dari tiap elemen dalam form
-    $gambar = htmlspecialchars($data["gambar"]);
-    $judul = htmlspecialchars($data["judul"]);
-    $rank = htmlspecialchars($data["rating"]);
-    $peserta = htmlspecialchars($data["peserta"]);
-    $harga = htmlspecialchars($data["harga"]);
+//Tambah Paket Bimbel
+if (isset($_POST['tambahPB'])) {
+    $judul = $_POST['judul'];
+    $rank = $_POST['rating'];
+    $peserta = $_POST['peserta'];
+    $harga = $_POST['harga'];
 
-    // upload gambar
-    $gambar = upload();
-    if (!$gambar) {
-        return false;
-    }
+    //Gambar
+    $allowed_extension = array('png', 'jpg', 'jpeg');
+    $nama = $_FILES['gambar']['name']; //ngambil nama file gambar
+    $dot = explode('.', $nama);
+    $ekstensi = strtolower(end($dot)); //mengambil ekstensi
+    $ukuran = $_FILES['gambar']['size']; // mengambil size file
+    $file_tmp = $_FILES['gambar']['tmp_name']; //mengambil lokasi filenya
 
-    // validasi udah ada atau belum
-    $cek = mysqli_query($conn, "SELECT * FROM t_pbimbel WHERE judul='$judul'");
+    //penamaan file -> enkripsi
+    $image = md5(uniqid($nama, true) . time()) . '.' . $ekstensi; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+
+    // validasi sudah ada atau belum
+    $cek = mysqli_query($conn, "select * from t_pbimbel where judul='$judul'");
     $hitung = mysqli_num_rows($cek);
 
     if ($hitung < 1) {
-        // query insert data
-        $query = "INSERT INTO t_pbimbel VALUES ('', '$gambar', '$judul', '', '$rank', '$peserta', '$harga')";
-        mysqli_query($conn, $query);
+        // Jika belum ada
+        //proses upload gambar
+        if (in_array($ekstensi, $allowed_extension) === true) {
+            //  Validasi ukuran file
+            if ($ukuran < 15000000) {
+                move_uploaded_file($file_tmp, 'img/' . $image);
+                $addtotable = mysqli_query($conn, "insert into t_pbimbel (gambar, judul, rank, peserta, harga) values ('$image','$judul','$rank','$peserta', '$harga')");
+                if ($addtotable) {
+                    echo '
+                    <script>
+                        alert("Berhasil memasukkan Paket Bimbel");
+                        widow.location.href="bimbel.php";
+                    </script>
+                    ';
+                } else {
+                    echo 'Gagal memasukkan Paket Bimbel';
+                    header('location:bimbel.php');
+                }
+            } else {
+                // Jika file lebih dari 15mb
+                echo '
+                <script>
+                    alert("Ukuran gambar tidak boleh lebih dari 15mb");
+                    widow.location.href="bimbel.php";
+                </script>
+                ';
+            }
+        } else {
+            // Jika gambar tidak png/jpg/jpeg
+            echo '
+            <script>
+                alert("gambar harus png/jpg/jpeg");
+                widow.location.href="bimbel.php";
+            </script>
+                ';
+        }
+    } else {
+        // Jika judul sudah terdaftar
+        echo '
+        <script>
+            alert("judul sudah terdaftar");
+            widow.location.href="bimbel.php";
+        </script>
+        ';
+    }
+};
 
-        return mysqli_affected_rows($conn);
+//Hapus Paket Bimbel
+if (isset($_POST['hapusPB'])) {
+    $id = $_POST['id'];
+
+    $gambar = mysqli_query($conn, "select * from t_pbimbel where id='$id'");
+    $get = mysqli_fetch_array($gambar);
+    $img = 'img/' . $get['gambar'];
+    unlink($img);
+
+    $hapus = mysqli_query($conn, "delete from t_pbimbel where id='$id'");
+    if ($hapus) {
+        echo '
+        <script>
+            alert("Berhasil menghapus Paket Bimbel");
+            widow.location.href="bimbel.php";
+        </script>
+        ';
+    } else {
+        echo '
+        <script>
+            alert("Gagal menghapus Paket Bimbel");
+            widow.location.href="bimbel.php";
+        </script>
+        ';
+    }
+};
+
+//Update Paket Bimbel
+if (isset($_POST['updatePB'])) {
+    $id = $_POST['id'];
+    $judul = $_POST['judul'];
+    $rating = $_POST['rating'];
+    $peserta = $_POST['peserta'];
+    $harga = $_POST['harga'];
+
+    //Gambar
+    $allowed_extension = array('png', 'jpg', 'jpeg');
+    $nama = $_FILES['gambar']['name']; //ngambil nama file gambar
+    $dot = explode('.', $nama);
+    $ekstensi = strtolower(end($dot)); //mengambil ekstensi
+    $ukuran = $_FILES['gambar']['size']; // mengambil size file
+    $file_tmp = $_FILES['gambar']['tmp_name']; //mengambil lokasi filenya
+
+    //penamaan file -> enkripsi
+    $image = md5(uniqid($nama, true) . time()) . '.' . $ekstensi; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+
+    if ($ukuran == 0) {
+        //jika tidak ingin upload
+        $update = mysqli_query($conn, "update t_pbimbel set judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
+        if ($update) {
+            echo '
+            <script>
+                alert("Berhasil Mengupdate Paket Bimbel");
+                widow.location.href="bimbel.php";
+            </script>
+            ';
+        } else {
+            echo '
+            <script>
+                alert("Gagal Mengupdate Paket Bimbel");
+                widow.location.href="bimbel.php";
+            </script>
+            ';
+        }
+    } else {
+        //Jika ingin upload
+        $gambar = mysqli_query($conn, "select * from t_pbimbel where id='$id'");
+        $get = mysqli_fetch_array($gambar);
+        $img = 'img/' . $get['gambar'];
+        unlink($img);
+
+        move_uploaded_file($file_tmp, 'img/' . $image);
+        $update = mysqli_query($conn, "update t_pbimbel set gambar='$image', judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
+        if ($update) {
+            echo '
+            <script>
+                alert("Berhasil Mengupdate Paket Bimbel");
+                widow.location.href="bimbel.php";
+            </script>
+            ';
+        } else {
+            echo '
+            <script>
+                alert("Gagal Mengupdate Paket Bimbel");
+                widow.location.href="bimbel.php";
+            </script>
+            ';
+        }
     }
 }

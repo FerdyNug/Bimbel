@@ -1,6 +1,8 @@
 <?php
 require 'inc/session.php';
 require 'header.php';
+
+$ptryout = query("SELECT * FROM t_ptryout");
 ?>
 
 <!DOCTYPE html>
@@ -89,90 +91,33 @@ require 'header.php';
         </div>
         <div class="container my-3">
             <div class="row">
+                
                 <div class="col-md-4 mb-4 p-4">
+
+                    <?php $i = 1; ?>
+                    <?php foreach ($ptryout as $row) : ?>
+                        <a href="">
+                        <div class="col mb-3">
                     <div class="card">
-                        <img src="img/deadPool.png" class="card-img-top" alt="...">
+                        <img src="adm/img/<?= $row["gambar"]; ?>" style="width: full; height: 80px;" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Paket Tryout SKD CPNS</h5>
+                            <h5 class="card-title">Paket <?= $row["judul"]; ?></h5>
                             <p class="card-text text-decoration-line-through fs-4 d-inline me-2">
                                 RP. 100.000
                             </p>
                             <p class="card-text text-success fs-3 d-inline">
-                                RP. 90.000
+                                RP <?= $row["harga"]; ?>.000
                             </p>
                             <br>
                             <div class="d-inline-flex bg-warning text-white px-2 rounded-pill me-2">CPNS</div>
-                            <div class="d-inline"><i class="bi bi-star-fill text-warning"></i> 5</div>
+                            <div class="d-inline"><i class="bi bi-star-fill text-warning"></i> <?= $row["rank"]; ?></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-4 p-4">
-                    <div class="card">
-                        <img src="img/deadPool.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Paket Tryout SKD CPNS</h5>
-                            <p class="card-text text-decoration-line-through fs-4 d-inline me-2">
-                                RP. 100.000
-                            </p>
-                            <p class="card-text text-success fs-3 d-inline">
-                                RP. 90.000
-                            </p>
-                            <br>
-                            <div class="d-inline-flex bg-warning text-white px-2 rounded-pill me-2">CPNS</div>
-                            <div class="d-inline"><i class="bi bi-star-fill text-warning"></i> 5</div>
-                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-4 p-4">
-                    <div class="card">
-                        <img src="img/deadPool.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Paket Tryout SKD CPNS</h5>
-                            <p class="card-text text-decoration-line-through fs-4 d-inline me-2">
-                                RP. 100.000
-                            </p>
-                            <p class="card-text text-success fs-3 d-inline">
-                                RP. 90.000
-                            </p>
-                            <br>
-                            <div class="d-inline-flex bg-warning text-white px-2 rounded-pill me-2">CPNS</div>
-                            <div class="d-inline"><i class="bi bi-star-fill text-warning"></i> 5</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 p-4">
-                    <div class="card">
-                        <img src="img/deadPool.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Paket Tryout SKD CPNS</h5>
-                            <p class="card-text text-decoration-line-through fs-4 d-inline me-2">
-                                RP. 100.000
-                            </p>
-                            <p class="card-text text-success fs-3 d-inline">
-                                RP. 90.000
-                            </p>
-                            <br>
-                            <div class="d-inline-flex bg-warning text-white px-2 rounded-pill me-2">CPNS</div>
-                            <div class="d-inline"><i class="bi bi-star-fill text-warning"></i> 5</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 p-4">
-                    <div class="card">
-                        <img src="img/deadPool.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Paket Tryout SKD CPNS</h5>
-                            <p class="card-text text-decoration-line-through fs-4 d-inline me-2">
-                                RP. 100.000
-                            </p>
-                            <p class="card-text text-success fs-3 d-inline">
-                                RP. 90.000
-                            </p>
-                            <br>
-                            <div class="d-inline-flex bg-warning text-white px-2 rounded-pill me-2">CPNS</div>
-                            <div class="d-inline"><i class="bi bi-star-fill text-warning"></i> 5</div>
-                        </div>
-                    </div>
+                    </a>
+                    <?php $i++; ?>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
         </div>

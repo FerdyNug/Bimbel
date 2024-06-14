@@ -15,29 +15,29 @@ if (isset($_POST["register"])) {
 }
 
 ?>
-<div id="layoutSidenav">
-    <?php
-    require('sidebar.php');
-    ?>
-    <div id="layoutSidenav_content">
-        <main>
-            <div class="container-fluid px-4">
-                <h1 class="mt-4">Kelola Admin</h1>
-                <div class="card mb-4 mt-5">
-                    <div class="card-header">
+<?php
+require('sidebar.php');
+?>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Kelola Admin</h1>
+            <div class="card mb-4 mt-5">
+                <div class="card-header">
 
-                        <!-- Button to Open Modal Tambah-->
-                        <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                            Tambah Admin
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <table id="datatablesSimple">
+                    <!-- Button to Open Modal Tambah-->
+                    <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
+                        Tambah Admin
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Username</th>
-                                    <th >Aksi</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,32 +65,34 @@ if (isset($_POST["register"])) {
                     </div>
                 </div>
             </div>
-        </main>
-        <?php
-        require('footer.php');
-        ?>
 
-        <!-- Modal Tambah Admin -->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        </div>
+    </main>
+    <?php
+    require('footer.php');
+    ?>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Tambah Admin</h4>
-                    </div>
+    <!-- Modal Tambah Admin -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-                    <!-- Modal body -->
-                    <form method="post">
-                        <div class="modal-body">
-                            <input type="text" name="username" id="username" class="mb-3 form-control" placeholder="Username" required>
-                            <input type="password" name="password" id="password" placeholder="Password" class="mb-3 form-control mb" required>
-                            <input type="password" name="password2" id="password2" placeholder="Konfirmasi Password" class="mb-3 form-control mb" required>
-                            <br>
-                            <button type="submit" class=" btn btn-primary mb" name="register">Register</button>
-                        </div>
-                    </form>
-
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Tambah Admin</h4>
                 </div>
+
+                <!-- Modal body -->
+                <form method="post">
+                    <div class="modal-body">
+                        <input type="text" name="username" id="username" class="mb-3 form-control" placeholder="Username" required>
+                        <input type="password" name="password" id="password" placeholder="Password" class="mb-3 form-control mb" required>
+                        <input type="password" name="password2" id="password2" placeholder="Konfirmasi Password" class="mb-3 form-control mb" required>
+                        <br>
+                        <button type="submit" class=" btn btn-primary mb" name="register">Register</button>
+                    </div>
+                </form>
+
             </div>
         </div>
+    </div>
