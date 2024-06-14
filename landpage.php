@@ -52,7 +52,7 @@ require 'header.php';
             </div>
             <div class="row">
                 <div class="col-6">
-                    <a href="#" class="text-decoration-none text-dark">
+                    <a href="tryout.php" class="text-decoration-none text-dark">
                         <div class="text-center rounded shadow p-2" style="height: 200px;">
                             <div class="bg-success btn btn-success fs-1 mt-5"><i class="bi bi-list-task"></i></div>
                             <div>Tryout</div>

@@ -1,5 +1,5 @@
 <?php
-// require 'inc/session.php';
+require 'inc/session.php';
 require 'header.php';
 ?>
 
@@ -16,9 +16,11 @@ require 'header.php';
 
     <section>
         <div class="container border border-success bg-success bg-opacity-25 my-4 rounded-4" style="height: 60px;">
-            <div class="mt-2">
-                <span><i class="bi bi-pc-display mx-3 fs-4"></i>Tryout Saya</span>
-            </div>
+            <a href="tryoutSaya.php" class="text-decoration-none text-dark">
+                <div class="mt-2">
+                    <span><i class="bi bi-pc-display mx-3 fs-4"></i>Tryout Saya</span>
+                </div>
+            </a>
         </div>
     </section>
 
