@@ -655,9 +655,9 @@ if (isset($_POST['gantiB'])) {
     $file_tmp3 = $_FILES['banner3']['tmp_name']; //mengambil lokasi filenya
 
     //penamaan file -> enkripsi
-    $image1 = md5(uniqid($nama1, true) . time()) . '.' . $ekstensi1; // menggabungkan nama file yang dienkripsi dengan ekstensinya
-    $image2 = md5(uniqid($nama2, true) . time()) . '.' . $ekstensi2; // menggabungkan nama file yang dienkripsi dengan ekstensinya
-    $image3 = md5(uniqid($nama3, true) . time()) . '.' . $ekstensi3; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+    $image1 = $nama1; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+    $image2 = $nama2; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+    $image3 = $nama3; // menggabungkan nama file yang dienkripsi dengan ekstensinya
 
     if ($ukuran1 == 0) {
         //jika tidak ingin upload Banner1

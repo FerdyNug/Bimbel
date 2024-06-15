@@ -35,10 +35,13 @@ $highlight = query("SELECT * FROM highlight");
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
+                        <img src="adm/banner/banner1.jpg" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
                     </div>
                     <div class="carousel-item">
-                        <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
+                        <img src="adm/banner/banner2.jpg" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="adm/banner/banner3.jpg" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
                     </div>
                     
                 </div>
