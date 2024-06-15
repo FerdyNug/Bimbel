@@ -15,7 +15,7 @@ require('sidebar.php');
 
                 <div class="card-header">
                     <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                        Tambah User
+                    <i class="fas fa-solid fa-plus"></i> User
                     </button>
                 </div>
                 <div class="card-body">
@@ -25,10 +25,7 @@ require('sidebar.php');
                                 <tr>
                                     <th>No</th>
                                     <th>Email</th>
-                                    <th>Nama Panggilan</th>
                                     <th>Nama Lengkap</th>
-                                    <th>Provinsi</th>
-                                    <th>Kabupaten</th>
                                     <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -38,28 +35,11 @@ require('sidebar.php');
                                 $user = mysqli_query($conn, "select * from t_user");
                                 $i = 1; 
                                 while($row=mysqli_fetch_array($user)){
-                                            
                                     $email = $row['email'];
-                                    $nama_panggilan = $row['nama_panggilan'];
-                                    if($nama_panggilan==null){
-                                        // Jika tidak ada gambar
-                                        $nama_panggilan = 'Tidak ada data';
-                                    }
-
                                     $nama_lengkap = $row['nama_lengkap'];
                                     if($nama_lengkap==null){
                                         // Jika tidak ada gambar
-                                        $nama_lengkap = 'Tidak ada data';
-                                    }
-                                    $provinsi = $row['provinsi'];
-                                    if($provinsi==null){
-                                        // Jika tidak ada gambar
-                                        $provinsi = 'Tidak ada data';
-                                    }
-                                    $kabupaten = $row['kabupaten'];
-                                    if($kabupaten==null){
-                                        // Jika tidak ada gambar
-                                        $kabupaten = 'Tidak ada data';
+                                        $nama_lengkap = 'Belum memasukkan data';
                                     }
 
                                     // cek ada gambar atau tidak
@@ -71,29 +51,25 @@ require('sidebar.php');
                                         // Jika ada gambar
                                         $image = '<img src="img/'.$gambar.'" width="80" class="zoomable">';
                                     }
-
                                 ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $email; ?></td>
-                                        <td><?= $nama_panggilan; ?></td>
                                         <td><?= $nama_lengkap; ?></td>
-                                        <td><?= $provinsi; ?></td>
-                                        <td><?= $kabupaten; ?></td>
                                         <td><?= $image; ?></td>
 
                                         <td>
-                                            <!-- Ubah data user -->
-                                            <a type="button" class="btn btn-warning mb-2" href="ubahUser.php?id=<?= $row["id"]; ?>">
-                                                Ubah
-                                            </a> 
+                                            <!-- Ubah data user --> 
+                                            <!-- <a type="button" class="btn btn-warning mb-2" href="ubahUser.php?id=<?= $row["id"]; ?>">
+                                                Ubah 
+                                            </a> -->
                                             <!-- Hapus data user -->
-                                            <a type="button" class="btn btn-danger mb-2" href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
+                                            <!-- <a type="button" class="btn btn-danger mb-2" href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
                                                 Hapus
-                                            </a>
+                                            </a> -->
                                             <!-- Detail user -->
-                                            <a type="button" class="btn btn-info" href="detailUser.php?id=<?= $row["id"]; ?>">
-                                                Detail
+                                            <a type="button" class="btn btn-outline-secondary" href="det/detailUser.php?id=<?= $row["id"]; ?>">
+                                            <i class="fas fa-solid fa-circle-info"></i>
                                             </a>
                                         </td>
                                     </tr>
