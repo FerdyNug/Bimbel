@@ -50,7 +50,7 @@ require 'header.php';
                     <h3>Nomor Soal</h3>
                     <div class="row justify-content-around mt-3">
                         <?php for ($i = 1; $i <= 110; $i++) : ?>
-                            <div class="btn btn-success mb-3 me-2 rounded-3" style="width: 80px;"><?php echo $i; ?></div>
+                        <div class="btn btn-success mb-3 me-2 rounded-3" style="width: 80px;"><?php echo $i; ?></div>
                         <?php endfor; ?>
                     </div>
                 </div>
