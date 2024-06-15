@@ -1,10 +1,6 @@
 <?php
-
+require 'inc/session.php';
 require 'header.php';
-
-?>
-
-<?php
 require('sidebar.php');
 ?>
 <div id="layoutSidenav_content">
@@ -46,10 +42,10 @@ require('sidebar.php');
                                     $gambar = $row['gambar']; //ambil gambar
                                     if($gambar==null){
                                         // Jika tidak ada gambar
-                                        $image = '<img src="img/defpic.png" width="80" class="zoomable">';
+                                        $image = '<img src="img/defpic.png" class="zoomable">';
                                     } else {
                                         // Jika ada gambar
-                                        $image = '<img src="img/'.$gambar.'" width="80" class="zoomable">';
+                                        $image = '<img src="img/'.$gambar.'" class="zoomable">';
                                     }
                                 ?>
                                     <tr>
@@ -60,15 +56,15 @@ require('sidebar.php');
 
                                         <td>
                                             <!-- Detail user -->
-                                            <a type="button" class="btn btn-light mb-2" href="det/detailUser.php?id=<?= $row["id"]; ?>">
+                                            <a type="button" class="btn btn-light" href="det/detailUser.php?id=<?= $row["id"]; ?>">
                                             <i class="fas fa-solid fa-circle-info"></i>
-                                            </a> <br>
+                                            </a>
                                             <!-- Ubah data user --> 
                                             <!-- <a type="button" class="btn btn-warning mb-2" href="ubahUser.php?id=<?= $row["id"]; ?>">
                                                 Ubah 
                                             </a> -->
                                             <!-- Hapus data user -->
-                                            <a type="button" class="btn btn-danger " href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
+                                            <a type="button" class="btn btn-danger" href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
                                             <i class="fas fa-solid fa-trash"></i>
                                             </a> 
                                             

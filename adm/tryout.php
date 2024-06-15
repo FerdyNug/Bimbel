@@ -1,10 +1,6 @@
 <?php
+require 'inc/session.php';
 require 'header.php';
-
-
-?>
-
-<?php
 require('sidebar.php');
 ?>
 <div id="layoutSidenav_content">
@@ -14,7 +10,7 @@ require('sidebar.php');
             <div class="card mb-4">
                 <div class="card-header">
                     <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#myModal">
-                        Tambah Paket
+                    <i class="fas fa-solid fa-plus"></i> Paket Tryout
                     </button>
                 </div>
                 <div class="card-body">
@@ -23,11 +19,11 @@ require('sidebar.php');
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Gambar</th>
                                     <th>Judul</th>
                                     <th>Rating</th>
                                     <th>Peserta</th>
                                     <th>Harga</th>
+                                    <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -50,27 +46,34 @@ require('sidebar.php');
                                         $img = 'No Photo';
                                     } else {
                                         // Jika ada gambar
-                                        $img = '<img src="img/'.$gambar.'" class="zoomable">';
+                                        $img = '<img src="img/'.$gambar.'">';
                                     }
 
                                 ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><img src="img/<?= $gambar; ?>" width="120" height="80"></td>
-                                        <td> <b> <a href="detailPT.php?id=<?= $row["id"]; ?>" class="text-white text-decoration-none"> <?= $judul; ?> </a> </b> </td>
+                                        <td><?= $judul; ?></td>
                                         <td><?= $rating; ?></td>
                                         <td><?= $peserta; ?></td>
                                         <td><?= $harga; ?></td>
+                                        <td><img class="zoomable" src="img/<?= $gambar; ?>" width="120" height="80"></td>
                                         <td>
+
+                                            <!-- Detail tryout -->
+                                            <a type="button" class="btn btn-light" href="det/detailPT.php?id=<?= $row["id"]; ?>">
+                                            <i class="fas fa-solid fa-circle-info"></i>
+                                            </a> 
+
                                             <!-- Ubah Paket Tryout -->
                                             <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $id; ?>">
-                                                Ubah
-                                            </a> <br>
+                                            <i class="fas fa-solid fa-pen-to-square"></i>
+                                            </a> 
 
                                             <!-- Hapus Paket Tryout -->
-                                            <a type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete<?= $id; ?>">
-                                                Hapus
+                                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $id; ?>">
+                                            <i class="fas fa-solid fa-trash"></i>
                                             </a>
+
                                         </td>
                                     </tr>
 

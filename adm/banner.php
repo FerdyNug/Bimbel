@@ -1,12 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
-
+require 'inc/session.php';
 require 'header.php';
-
 require('sidebar.php');
 ?>
 
@@ -45,7 +39,7 @@ require('sidebar.php');
                                         $banner1 = 'No Photo';
                                     } else {
                                         // Jika ada gambar
-                                        $banner1 = '<img src="banner/'.$banner1.'" width="120" height="100">';
+                                        $banner1 = '<img src="banner/'.$banner1.'" width="200" height="100">';
                                     }
 
                                     $banner2 = $row['banner2']; //ambil gambar
@@ -54,7 +48,7 @@ require('sidebar.php');
                                         $banner2 = 'No Photo';
                                     } else {
                                         // Jika ada gambar
-                                        $banner2 = '<img src="banner/'.$banner2.'" width="120" height="100">';
+                                        $banner2 = '<img src="banner/'.$banner2.'" width="200" height="100">';
                                     }
 
                                     $banner3 = $row['banner3']; //ambil gambar
@@ -63,7 +57,7 @@ require('sidebar.php');
                                         $banner3 = 'No Photo';
                                     } else {
                                         // Jika ada gambar
-                                        $banner3 = '<img src="banner/'.$banner3.'" width="120" height="100">';
+                                        $banner3 = '<img src="banner/'.$banner3.'" width="200" height="100">';
                                     }
 
                                 ?>
@@ -74,7 +68,7 @@ require('sidebar.php');
                                     <td>
                                         <!-- Ubah Paket Tryout -->
                                         <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $id; ?>">
-                                            Ubah
+                                        <i class="fas fa-solid fa-pen-to-square"></i>
                                         </a> <br>
                                     </td>
                                 </tr>

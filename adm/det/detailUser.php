@@ -1,10 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
-
+require 'inc/session.php';
 require 'header.php';
 
 // dapetin ID barang yang dioper di halaman sebelumnya
@@ -32,62 +27,62 @@ if ($gambar == null) {
 ?>
 
 
-        <main>
-            <div class="container-fluid px-4">
+<main>
+    <div class="container-fluid px-4">
 
-                <a type="button" class="btn btn-secondary mt-3 px-5" href="../user.php">
-                <i class="fas fa-solid fa-backward"></i> 
-                </a>
-                <div class="w-full ">
-                <h1 class="mt-4"><?= $img; ?> </h1>
+        <a type="button" class="btn btn-secondary mt-3 px-5" href="../user.php">
+            <i class="fas fa-solid fa-backward"></i>
+        </a>
+        <div class="w-full ">
+            <h1 class="mt-4"><?= $img; ?> </h1>
 
-                <table class="m-0 my-4 mx-4">
-                    <tr>
-                        <td>
-                            <span class="font-bold">Email</span>
-                        </td>
-                        <td class="">
-                            <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $email; ?>" readonly>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="font-bold">Nama Lengkap</span>
-                        </td>
-                        <td>
-                            <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $nama_lengkap; ?>" readonly>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="font-bold">Nama Panggilan</span>
-                        </td>
-                        <td>
-                            <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $nama_panggilan; ?>" readonly>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="font-bold">Provinsi</span>
-                        </td>
-                        <td>
-                            <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $provinsi; ?>" readonly>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="font-bold">Kabupaten</span>
-                        </td>
-                        <td>
-                            <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $kabupaten; ?>" readonly>
-                        </td>
-                    </tr>
-                </table>
-                </div>
+            <table class="m-0 my-4 mx-4">
+                <tr>
+                    <td>
+                        <span class="font-bold">Email</span>
+                    </td>
+                    <td class="">
+                        <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $email; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="font-bold">Nama Lengkap</span>
+                    </td>
+                    <td>
+                        <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $nama_lengkap; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="font-bold">Nama Panggilan</span>
+                    </td>
+                    <td>
+                        <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $nama_panggilan; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="font-bold">Provinsi</span>
+                    </td>
+                    <td>
+                        <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $provinsi; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="font-bold">Kabupaten</span>
+                    </td>
+                    <td>
+                        <b class="pl-2">:</b> <input class="p-1 pl-2 rounded font-bold m-3" type="text" placeholder="<?= $kabupaten; ?>" readonly>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 
-            </div>
-        </main>
-        <?php
-        require('footer.php');
-        ?>
+    </div>
+</main>
+<?php
+require('footer.php');
+?>

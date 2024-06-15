@@ -193,6 +193,93 @@ function ubahAdmin($data)
 }
 
 
+// ADMIN
+
+//Tambah Admin
+if (isset($_POST['tambahAdmin'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
+
+    // cek konfirmasi password
+    if ($password !== $password2) {
+        echo "<script>
+                alert('konfirmasi password tidak sesuai');
+             </script>";
+        return false;
+    }
+
+    // enskripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // validasi sudah ada atau belum
+    $cek = mysqli_query($conn, "select * from t_admin where username='$username'");
+    $hitung = mysqli_num_rows($cek);
+
+    if ($hitung < 1) {
+        // Jika belum ada
+        // tambahkan t_admin baru ke database
+        $adminbaru = mysqli_query($conn, "insert into t_admin (username, password) values ('$username', '$password')");
+        if ($adminbaru) {
+            echo '
+                <script>
+                    alert("Berhasil menambah Admin");
+                    widow.location.href="admin.php";
+                </script>
+            ';
+        }
+    }
+};
+
+//Ubah Admin
+if (isset($_POST['ubahAdmin'])) {
+    $id = $_POST['id'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
+
+    // cek konfirmasi password
+    if ($password !== $password2) {
+        echo "<script>
+                alert('konfirmasi password tidak sesuai');
+            </script>";
+        return false;
+    }
+    
+    $adminbaru = mysqli_query($conn, "update t_admin set username='$username', password='$password' where id='$id'");
+    if ($adminbaru) {
+        echo '
+            <script>
+                alert("Berhasil mengubah Admin");
+                widow.location.href="admin.php";
+            </script>
+        ';
+    }
+};
+
+//Hapus Admin
+if (isset($_POST['hapusAdmin'])) {
+    $id = $_POST['id'];
+
+    $hapus = mysqli_query($conn, "delete from t_admin where id='$id'");
+    if ($hapus) {
+        echo '
+        <script>
+            alert("Berhasil menghapus Admin");
+            widow.location.href="admin.php";
+        </script>
+        ';
+    } else {
+        echo '
+        <script>
+            alert("Gagal menghapus Admin");
+            widow.location.href="admin.php";
+        </script>
+        ';
+    }
+};
+
+
 // TRYOUT
 
 //Tambah Paket Tryout
@@ -354,7 +441,7 @@ if (isset($_POST['updatePT'])) {
             ';
         }
     }
-}
+};
 
 
 
@@ -710,28 +797,28 @@ if (isset($_POST['gantiB'])) {
     }
 
     if ($ukuran3 == 0) {
-         //jika tidak ingin upload Banner1
-         $banner1 = mysqli_query($conn, "select * from highlight where id='$id'");
-         $get = mysqli_fetch_array($banner1);
-         $banner1 = 'banner/' . $get['banner1'];
-         unlink($banner1);
- 
-         $banner2 = mysqli_query($conn, "select * from highlight where id='$id'");
-         $get = mysqli_fetch_array($banner2);
-         $banner2 = 'banner/' . $get['banner2'];
-         unlink($banner2);
- 
-         move_uploaded_file($file_tmp1, 'banner/' . $image1);
-         move_uploaded_file($file_tmp2, 'banner/' . $image2);
-         $update = mysqli_query($conn, "update highlight set banner1='$image1', banner2='$image2' where id='$id'");
-         if ($update) {
-             echo '
+        //jika tidak ingin upload Banner1
+        $banner1 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner1);
+        $banner1 = 'banner/' . $get['banner1'];
+        unlink($banner1);
+
+        $banner2 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner2);
+        $banner2 = 'banner/' . $get['banner2'];
+        unlink($banner2);
+
+        move_uploaded_file($file_tmp1, 'banner/' . $image1);
+        move_uploaded_file($file_tmp2, 'banner/' . $image2);
+        $update = mysqli_query($conn, "update highlight set banner1='$image1', banner2='$image2' where id='$id'");
+        if ($update) {
+            echo '
              <script>
                  alert("Berhasil mengganti banner1 dan banner2");
                  widow.location.href="landpage.php";
              </script>
              ';
-         }
+        }
     }
 
     if ($ukuran1 = $ukuran2 = $ukuran3 < 15000000) {

@@ -1,4 +1,5 @@
 <?php
+require 'inc/session.php';
 require 'header.php';
 $admin = query("SELECT * FROM t_admin");
 
@@ -27,7 +28,7 @@ require('sidebar.php');
 
                     <!-- Button to Open Modal Tambah-->
                     <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                        Tambah Admin
+                    <i class="fas fa-solid fa-plus"></i> Admin
                     </button>
                 </div>
                 <div class="card-body">
@@ -48,16 +49,68 @@ require('sidebar.php');
                                         <td><?= $adm["username"]; ?></td>
                                         <td>
                                             <!-- Ubah Admin -->
-                                            <a type="button" class="btn btn-warning" href="ubahAdmin.php?id=<?= $adm["id"]; ?>">
+                                            <!-- <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $adm["id"]; ?>">
                                                 Ubah
+                                            </a> -->
+
+                                            <!-- Hapus Paket Tryout -->
+                                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $adm["id"]; ?>">
+                                            <i class="fas fa-solid fa-trash"></i>
                                             </a>
 
-                                            <!-- Hapus Mahasiswa -->
-                                            <a type="button" class="btn btn-danger ml-1" href="hapusAdmin.php?id=<?= $adm["id"]; ?>" onclick="return confirm('Yakin hapus data admin ini?');">
-                                                Hapus
-                                            </a>
                                         </td>
                                     </tr>
+
+                                    <!-- Modal Edit Paket Tryout -->
+                                    <div class="modal fade" id="edit<?= $adm["id"]; ?>">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Mengubah Admim</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <form method="post" enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <input type="text" name="username" class="mb-3 form-control mb" placeholder="Username" value="<?= $adm["username"]; ?>" required>
+                                                        <input type="password" name="password" class="mb-3 form-control mb" placeholder="Password" required>
+                                                        <input type="password" name="password2" class="mb-3 form-control mb" placeholder="Konfirmasi Password" required>
+                                                        <input type="hidden" name="id" value="<?= $id; ?>">
+                                                        <button type="submit" class="mb-3 btn btn-primary mb" name="ubahAdmin">Ubah</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal hapus Paket Tryout -->
+                                    <div class="modal fade" id="delete<?= $adm["id"]; ?>">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Hapus Paket Tryout?</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <form method="post">
+                                                    <div class="modal-body">
+                                                        Apakah Anda yakin ingin menghapus <?= $adm["username"]; ?>?
+                                                        <input type="hidden" name="id" value="<?= $adm["id"]; ?>">
+                                                        <br> <br>
+                                                        <button type="submit" class="mb-3 btn btn-danger mb" name="hapusAdmin">Hapus</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <?php $i++; ?>
                                 <?php endforeach; ?>
                             </tbody>
@@ -89,7 +142,7 @@ require('sidebar.php');
                         <input type="password" name="password" id="password" placeholder="Password" class="mb-3 form-control mb" required>
                         <input type="password" name="password2" id="password2" placeholder="Konfirmasi Password" class="mb-3 form-control mb" required>
                         <br>
-                        <button type="submit" class=" btn btn-primary mb" name="register">Register</button>
+                        <button type="submit" class=" btn btn-primary mb" name="tambahAdmin">Tambah</button>
                     </div>
                 </form>
 

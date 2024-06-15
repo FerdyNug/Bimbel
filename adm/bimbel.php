@@ -1,8 +1,7 @@
 <?php
+require 'inc/session.php';
 require 'header.php';
 $pbimbel = query("SELECT * FROM t_pbimbel");
-?>
-<?php
 require('sidebar.php');
 ?>
 <div id="layoutSidenav_content">
@@ -13,7 +12,7 @@ require('sidebar.php');
 
                 <div class="card-header">
                     <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#myModal">
-                        Tambah Paket
+                    <i class="fas fa-solid fa-plus"></i> Paket Bimbel
                     </button>
                 </div>
                 <div class="card-body">
@@ -22,11 +21,11 @@ require('sidebar.php');
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Gambar</th>
                                     <th>Judul</th>
                                     <th>Rating</th>
                                     <th>Peserta</th>
                                     <th>Harga</th>
+                                    <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -35,20 +34,26 @@ require('sidebar.php');
                                 <?php foreach ($pbimbel as $row) : ?>
                                     <tr>
                                         <td><?= $i; ?></td>
-                                        <td><img src="img/<?= $row["gambar"]; ?>" width="120" height="80"></td>
                                         <td><?= $row["judul"]; ?></td>
                                         <td><?= $row["rank"]; ?></td>
                                         <td><?= $row["peserta"]; ?></td>
-                                        <td>99.<?= $row["harga"]; ?></td>
+                                        <td><?= $row["harga"]; ?>.000</td>
+                                        <td><img src="img/<?= $row["gambar"]; ?>" width="120" height="80"></td>
                                         <td>
+
+                                            <!-- Detail tryout -->
+                                            <a type="button" class="btn btn-light" href="det/detailPB.php?id=<?= $row["id"]; ?>">
+                                            <i class="fas fa-solid fa-circle-info"></i>
+                                            </a> 
+
                                             <!-- Ubah Paket Bimbel -->
                                             <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $row["id"]; ?>">
-                                                Ubah
-                                            </a> <br>
+                                            <i class="fas fa-solid fa-pen-to-square"></i>
+                                            </a>
 
                                             <!-- Hapus Paket Bimbel -->
-                                            <a type="button" class="btn btn-danger mt-1" data-toggle="modal" data-target="#delete<?= $row["id"]; ?>">
-                                                Hapus
+                                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row["id"]; ?>">
+                                            <i class="fas fa-solid fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
