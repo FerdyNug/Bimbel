@@ -10,7 +10,7 @@ require('sidebar.php');
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">User</h1>
+            <h1 class="mt-4">USER</h1>
             <div class="card mb-4 mt-4">
 
                 <div class="card-header">
@@ -59,18 +59,19 @@ require('sidebar.php');
                                         <td><?= $image; ?></td>
 
                                         <td>
+                                            <!-- Detail user -->
+                                            <a type="button" class="btn btn-light mb-2" href="det/detailUser.php?id=<?= $row["id"]; ?>">
+                                            <i class="fas fa-solid fa-circle-info"></i>
+                                            </a> <br>
                                             <!-- Ubah data user --> 
                                             <!-- <a type="button" class="btn btn-warning mb-2" href="ubahUser.php?id=<?= $row["id"]; ?>">
                                                 Ubah 
                                             </a> -->
                                             <!-- Hapus data user -->
-                                            <!-- <a type="button" class="btn btn-danger mb-2" href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
-                                                Hapus
-                                            </a> -->
-                                            <!-- Detail user -->
-                                            <a type="button" class="btn btn-outline-secondary" href="det/detailUser.php?id=<?= $row["id"]; ?>">
-                                            <i class="fas fa-solid fa-circle-info"></i>
-                                            </a>
+                                            <a type="button" class="btn btn-danger " href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
+                                            <i class="fas fa-solid fa-trash"></i>
+                                            </a> 
+                                            
                                         </td>
                                     </tr>
                                     <?php 
