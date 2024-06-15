@@ -37,7 +37,55 @@ require('sidebar.php');
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4"><?= $nama_lengkap; ?> </h1>
+
+            <table>
+                <tr>
+                    <td>
+                        <span>Email</span>
+                    </td>
+                    <td>
+                        <b>:</b> <input class="ml-2" type="text" value="<?= $email; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Nama Lengkap</span>
+                    </td>
+                    <td>
+                    <b>:</b> <input class="ml-2" type="text" value="<?= $nama_lengkap; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Nama Panggilan</span>
+                    </td>
+                    <td>
+                    <b>:</b> <input class="ml-2" type="text" value="<?= $nama_panggilan; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Provinsi</span>
+                    </td>
+                    <td>
+                    <b>:</b> <input class="ml-2" type="text" value="<?= $provinsi; ?>" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Kabupaten</span>
+                    </td>
+                    <td>
+                    <b>:</b> <input class="ml-2" type="text" value="<?= $kabupaten; ?>" readonly>
+                    </td>
+                </tr>
+            </table>
+
             <div class="card mb-4 mt-4">
+                
+
+
+
                 <div class="card-header">
                     <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
                         Tambah Paket
