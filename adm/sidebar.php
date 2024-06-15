@@ -8,28 +8,39 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
-                    <a class="nav-link" href="landpage.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Landing Page
+                    <div class="sb-sidenav-menu-heading">Interface</div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        halaman
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link" href="landpage.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-reguler fa-window-maximize"></i></div>
+                                Landing Page
+                            </a>
+                            <a class="nav-link" href="tryout.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-file-pen"></i></div>
+                                Tryout
+                            </a>
+                            <a class="nav-link" href="bimbel.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-chalkboard-user"></i></div>
+                                Bimbel
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="sb-sidenav-menu-heading">Pengguna</div>
                     <a class="nav-link" href="user.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-solid fa-user"></i></div>
                         User
                     </a>
-                    <a class="nav-link" href="tryout.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Tryout
-                    </a>
-                    <a class="nav-link" href="bimbel.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Bimbel
-                    </a>
                     <a class="nav-link" href="admin.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-solid fa-user-tie"></i></div>
                         Kelola Admin
-                    </a>
+                    </a> <br>
                     <a class="nav-link" href="logout.php">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-solid fa-right-from-bracket"></i></div>
                         Logout
                     </a>
                 </div>

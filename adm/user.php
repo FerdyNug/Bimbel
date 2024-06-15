@@ -10,7 +10,7 @@ require('sidebar.php');
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Data User</h1>
+            <h1 class="mt-4">User</h1>
             <div class="card mb-4 mt-4">
 
                 <div class="card-header">
@@ -83,14 +83,17 @@ require('sidebar.php');
                                         <td><?= $image; ?></td>
 
                                         <td>
-                                            <!-- Ubah Mahasiswa -->
-                                            <a type="button" class="btn btn-warning" href="ubahUser.php?id=<?= $row["id"]; ?>">
+                                            <!-- Ubah data user -->
+                                            <a type="button" class="btn btn-warning mb-2" href="ubahUser.php?id=<?= $row["id"]; ?>">
                                                 Ubah
-                                            </a> <br>
-
-                                            <!-- Hapus Mahasiswa -->
-                                            <a type="button" class="btn btn-danger" href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
+                                            </a> 
+                                            <!-- Hapus data user -->
+                                            <a type="button" class="btn btn-danger mb-2" href="../user/hapusUser.php?id=<?= $row["id"]; ?>" onclick="return confirm('Yakin hapus data mahasiswa ini?');">
                                                 Hapus
+                                            </a>
+                                            <!-- Detail user -->
+                                            <a type="button" class="btn btn-info" href="detailUser.php?id=<?= $row["id"]; ?>">
+                                                Detail
                                             </a>
                                         </td>
                                     </tr>

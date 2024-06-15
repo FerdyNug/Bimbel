@@ -1,6 +1,7 @@
 <?php
 require 'inc/session.php';
 require 'header.php';
+$highlight = query("SELECT * FROM highlight");
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +33,14 @@ require 'header.php';
             </div>
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+
                     <div class="carousel-item active">
                         <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
                     </div>
                     <div class="carousel-item">
                         <img src="img/deadPool.png" class="d-block w-100 rounded-4" alt="..." style="height: 400px;">
                     </div>
+                    
                 </div>
             </div>
         </div>

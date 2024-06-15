@@ -520,3 +520,255 @@ if (isset($_POST['updatePB'])) {
         }
     }
 }
+
+
+// BANNER
+
+// Tambah Banner
+if (isset($_POST['tambahB'])) {
+
+    //Gambar 1
+    $allowed_extension = array('png', 'jpg', 'jpeg');
+
+    $nama1 = $_FILES['banner1']['name']; //ngambil nama file gambar
+    $nama2 = $_FILES['banner2']['name']; //ngambil nama file gambar
+    $nama3 = $_FILES['banner3']['name']; //ngambil nama file gambar
+
+    $dot1 = explode('.', $nama1);
+    $ekstensi1 = strtolower(end($dot1)); //mengambil ekstensi
+    $ukuran1 = $_FILES['banner1']['size']; // mengambil size file
+    $file_tmp1 = $_FILES['banner1']['tmp_name']; //mengambil lokasi filenya
+
+    $dot2 = explode('.', $nama2);
+    $ekstensi2 = strtolower(end($dot2)); //mengambil ekstensi
+    $ukuran2 = $_FILES['banner2']['size']; // mengambil size file
+    $file_tmp2 = $_FILES['banner2']['tmp_name']; //mengambil lokasi filenya
+
+    $dot3 = explode('.', $nama3);
+    $ekstensi3 = strtolower(end($dot3)); //mengambil ekstensi
+    $ukuran3 = $_FILES['banner3']['size']; // mengambil size file
+    $file_tmp3 = $_FILES['banner3']['tmp_name']; //mengambil lokasi filenya
+
+    //penamaan file -> enkripsi
+    $image1 = md5(uniqid($nama1, true) . time()) . '.' . $ekstensi1; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+    $image2 = md5(uniqid($nama2, true) . time()) . '.' . $ekstensi2; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+    $image3 = md5(uniqid($nama3, true) . time()) . '.' . $ekstensi3; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+
+    // validasi sudah ada atau belum
+    $cek = mysqli_query($conn, "select * from highlight where banner1='$image1'");
+    $hitung = mysqli_num_rows($cek);
+
+    if ($hitung < 1) {
+        // Jika belum ada
+        //proses upload gambar
+        if (in_array($ekstensi1, $allowed_extension) === true) {
+            move_uploaded_file($file_tmp1, 'banner/' . $image1);
+            if (in_array($ekstensi2, $allowed_extension) === true) {
+                move_uploaded_file($file_tmp2, 'banner/' . $image2);
+                if (in_array($ekstensi3, $allowed_extension) === true) {
+                    move_uploaded_file($file_tmp3, 'banner/' . $image3);
+                    if ($ukuran1 = $ukuran2 = $ukuran3 < 15000000) {
+                        $addtotable = mysqli_query($conn, "insert into highlight (banner1, banner2, banner3) values ('$image1','$image2','$image3')");
+                        if ($addtotable) {
+                            echo '
+                            <script>
+                                alert("Berhasil memasukkan Banner");
+                                widow.location.href="landpage.php";
+                            </script>
+                            ';
+                        } else {
+                            echo 'Gagal memasukkan banner ke database';
+                            header('location:landpage.php');
+                        }
+                    } else {
+                        // Jika file lebih dari 15mb
+                        echo '
+                        <script>
+                            alert("Ukuran gambar tidak boleh lebih dari 15mb");
+                            widow.location.href="landpage.php";
+                        </script>
+                        ';
+                    }
+                } else {
+                    // Jika gambar tidak png/jpg/jpeg
+                    echo '
+                    <script>
+                        alert("gambar harus png/jpg/jpeg");
+                        widow.location.href="landpage.php";
+                    </script>
+                        ';
+                }
+            } else {
+                // Jika gambar tidak png/jpg/jpeg
+                echo '
+                <script>
+                    alert("gambar harus png/jpg/jpeg");
+                    widow.location.href="landpage.php";
+                </script>
+                    ';
+            }
+        } else {
+            // Jika gambar tidak png/jpg/jpeg
+            echo '
+            <script>
+                alert("gambar harus png/jpg/jpeg");
+                widow.location.href="landpage.php";
+            </script>
+                ';
+        }
+    } else {
+        // Jika judul sudah terdaftar
+        echo '
+        <script>
+            alert("judul sudah terdaftar");
+            widow.location.href="landpage.php";
+        </script>
+        ';
+    }
+};
+
+// Ganti Banner
+//Update Paket Bimbel
+if (isset($_POST['gantiB'])) {
+    $id = $_POST['id'];
+
+    //Gambar
+    $allowed_extension = array('png', 'jpg', 'jpeg');
+
+    $nama1 = $_FILES['banner1']['name']; //ngambil nama file gambar
+    $nama2 = $_FILES['banner2']['name']; //ngambil nama file gambar
+    $nama3 = $_FILES['banner3']['name']; //ngambil nama file gambar
+
+    $dot1 = explode('.', $nama1);
+    $ekstensi1 = strtolower(end($dot1)); //mengambil ekstensi
+    $ukuran1 = $_FILES['banner1']['size']; // mengambil size file
+    $file_tmp1 = $_FILES['banner1']['tmp_name']; //mengambil lokasi filenya
+
+    $dot2 = explode('.', $nama2);
+    $ekstensi2 = strtolower(end($dot2)); //mengambil ekstensi
+    $ukuran2 = $_FILES['banner2']['size']; // mengambil size file
+    $file_tmp2 = $_FILES['banner2']['tmp_name']; //mengambil lokasi filenya
+
+    $dot3 = explode('.', $nama3);
+    $ekstensi3 = strtolower(end($dot3)); //mengambil ekstensi
+    $ukuran3 = $_FILES['banner3']['size']; // mengambil size file
+    $file_tmp3 = $_FILES['banner3']['tmp_name']; //mengambil lokasi filenya
+
+    //penamaan file -> enkripsi
+    $image1 = md5(uniqid($nama1, true) . time()) . '.' . $ekstensi1; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+    $image2 = md5(uniqid($nama2, true) . time()) . '.' . $ekstensi2; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+    $image3 = md5(uniqid($nama3, true) . time()) . '.' . $ekstensi3; // menggabungkan nama file yang dienkripsi dengan ekstensinya
+
+    if ($ukuran1 == 0) {
+        //jika tidak ingin upload Banner1
+        $banner2 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner2);
+        $banner2 = 'banner/' . $get['banner2'];
+        unlink($banner2);
+
+        $banner3 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner3);
+        $banner3 = 'banner/' . $get['banner3'];
+        unlink($banner3);
+
+        move_uploaded_file($file_tmp2, 'banner/' . $image2);
+        move_uploaded_file($file_tmp3, 'banner/' . $image3);
+        $update = mysqli_query($conn, "update highlight set banner2='$image2', banner3='$image3' where id='$id'");
+        if ($update) {
+            echo '
+            <script>
+                alert("Berhasil mengganti banner2 dan banner3");
+                widow.location.href="landpage.php";
+            </script>
+            ';
+        }
+    }
+
+    if ($ukuran2 == 0) {
+        //jika tidak ingin upload Banner1
+        $banner1 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner1);
+        $banner1 = 'banner/' . $get['banner1'];
+        unlink($banner1);
+
+        $banner3 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner3);
+        $banner3 = 'banner/' . $get['banner3'];
+        unlink($banner3);
+
+        move_uploaded_file($file_tmp1, 'banner/' . $image1);
+        move_uploaded_file($file_tmp3, 'banner/' . $image3);
+        $update = mysqli_query($conn, "update highlight set banner1='$image1', banner3='$image3' where id='$id'");
+        if ($update) {
+            echo '
+            <script>
+                alert("Berhasil mengganti banner1 dan banner3");
+                widow.location.href="landpage.php";
+            </script>
+            ';
+        }
+    }
+
+    if ($ukuran3 == 0) {
+         //jika tidak ingin upload Banner1
+         $banner1 = mysqli_query($conn, "select * from highlight where id='$id'");
+         $get = mysqli_fetch_array($banner1);
+         $banner1 = 'banner/' . $get['banner1'];
+         unlink($banner1);
+ 
+         $banner2 = mysqli_query($conn, "select * from highlight where id='$id'");
+         $get = mysqli_fetch_array($banner2);
+         $banner2 = 'banner/' . $get['banner2'];
+         unlink($banner2);
+ 
+         move_uploaded_file($file_tmp1, 'banner/' . $image1);
+         move_uploaded_file($file_tmp2, 'banner/' . $image2);
+         $update = mysqli_query($conn, "update highlight set banner1='$image1', banner2='$image2' where id='$id'");
+         if ($update) {
+             echo '
+             <script>
+                 alert("Berhasil mengganti banner1 dan banner2");
+                 widow.location.href="landpage.php";
+             </script>
+             ';
+         }
+    }
+
+    if ($ukuran1 = $ukuran2 = $ukuran3 < 15000000) {
+        //Jika ingin upload
+        $banner1 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner1);
+        $banner1 = 'banner/' . $get['banner1'];
+        unlink($banner1);
+
+        $banner2 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner2);
+        $banner2 = 'banner/' . $get['banner2'];
+        unlink($banner2);
+
+        $banner3 = mysqli_query($conn, "select * from highlight where id='$id'");
+        $get = mysqli_fetch_array($banner3);
+        $banner3 = 'banner/' . $get['banner3'];
+        unlink($banner3);
+
+        move_uploaded_file($file_tmp1, 'banner/' . $image1);
+        move_uploaded_file($file_tmp2, 'banner/' . $image2);
+        move_uploaded_file($file_tmp3, 'banner/' . $image3);
+        $update = mysqli_query($conn, "update highlight set banner1='$image1', banner2='$image2', banner3='$image3' where id='$id'");
+        if ($update) {
+            echo '
+            <script>
+                alert("Berhasil mengganti seluruh banner");
+                widow.location.href="landpage.php";
+            </script>
+            ';
+        } else {
+            echo '
+            <script>
+                alert("Gagal mengganti banner");
+                widow.location.href="landpage.php";
+            </script>
+            ';
+        }
+    }
+}
