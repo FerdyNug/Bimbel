@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2024 at 11:19 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 16 Jun 2024 pada 13.27
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `highlight`
+-- Struktur dari tabel `highlight`
 --
 
 CREATE TABLE `highlight` (
@@ -35,7 +35,7 @@ CREATE TABLE `highlight` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `highlight`
+-- Dumping data untuk tabel `highlight`
 --
 
 INSERT INTO `highlight` (`id`, `banner1`, `banner2`, `banner3`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `highlight` (`id`, `banner1`, `banner2`, `banner3`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_admin`
+-- Struktur dari tabel `t_admin`
 --
 
 CREATE TABLE `t_admin` (
@@ -54,7 +54,7 @@ CREATE TABLE `t_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `t_admin`
+-- Dumping data untuk tabel `t_admin`
 --
 
 INSERT INTO `t_admin` (`id`, `username`, `password`) VALUES
@@ -66,7 +66,7 @@ INSERT INTO `t_admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_dptryout`
+-- Struktur dari tabel `t_dptryout`
 --
 
 CREATE TABLE `t_dptryout` (
@@ -79,7 +79,7 @@ CREATE TABLE `t_dptryout` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pbimbel`
+-- Struktur dari tabel `t_pbimbel`
 --
 
 CREATE TABLE `t_pbimbel` (
@@ -92,7 +92,7 @@ CREATE TABLE `t_pbimbel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `t_pbimbel`
+-- Dumping data untuk tabel `t_pbimbel`
 --
 
 INSERT INTO `t_pbimbel` (`id`, `gambar`, `judul`, `rank`, `peserta`, `harga`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `t_pbimbel` (`id`, `gambar`, `judul`, `rank`, `peserta`, `harga`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_ptryout`
+-- Struktur dari tabel `t_ptryout`
 --
 
 CREATE TABLE `t_ptryout` (
@@ -114,7 +114,7 @@ CREATE TABLE `t_ptryout` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `t_ptryout`
+-- Dumping data untuk tabel `t_ptryout`
 --
 
 INSERT INTO `t_ptryout` (`id`, `gambar`, `judul`, `rank`, `peserta`, `harga`) VALUES
@@ -124,7 +124,39 @@ INSERT INTO `t_ptryout` (`id`, `gambar`, `judul`, `rank`, `peserta`, `harga`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_user`
+-- Struktur dari tabel `t_soal`
+--
+
+CREATE TABLE `t_soal` (
+  `id_soal` int(11) NOT NULL,
+  `soal` varchar(500) NOT NULL,
+  `pil_a` varchar(100) NOT NULL,
+  `pil_b` varchar(100) NOT NULL,
+  `pil_c` varchar(100) NOT NULL,
+  `pil_d` varchar(100) NOT NULL,
+  `pil_e` varchar(100) NOT NULL,
+  `kunci_jawaban` varchar(10) NOT NULL,
+  `pembahasan` varchar(500) NOT NULL,
+  `skor_a` varchar(10) NOT NULL,
+  `skor_b` varchar(10) NOT NULL,
+  `skor_c` varchar(10) NOT NULL,
+  `skor_d` varchar(10) NOT NULL,
+  `skor_e` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `t_soal`
+--
+
+INSERT INTO `t_soal` (`id_soal`, `soal`, `pil_a`, `pil_b`, `pil_c`, `pil_d`, `pil_e`, `kunci_jawaban`, `pembahasan`, `skor_a`, `skor_b`, `skor_c`, `skor_d`, `skor_e`) VALUES
+(1, 'Kenapa bumi bulat?', 'A.', 'B.', 'C.', 'D.', 'E.', 'B', 'Karena tidak datar', '0', '5', '0', '0', '0'),
+(2, 'Kenapa bumi berputar?', 'A. Gatau', 'B. Apa ya', 'C. Kayanya', 'D. Bukan', 'E. Iya', 'A', 'Karena tidak diam', '5', '0', '0', '0', '0'),
+(3, 'Apa itu komputer?', 'A. Mainan', 'B. Perangkat', 'C. Digital', 'D. Elektronik', 'E. Barang', 'D', 'Komputer itu Alat Elektronik', '0', '0', '0', '5', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `t_user`
 --
 
 CREATE TABLE `t_user` (
@@ -139,7 +171,7 @@ CREATE TABLE `t_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `t_user`
+-- Dumping data untuk tabel `t_user`
 --
 
 INSERT INTO `t_user` (`id`, `email`, `nama_panggilan`, `password`, `gambar`, `nama_lengkap`, `provinsi`, `kabupaten`) VALUES
@@ -151,77 +183,89 @@ INSERT INTO `t_user` (`id`, `email`, `nama_panggilan`, `password`, `gambar`, `na
 --
 
 --
--- Indexes for table `highlight`
+-- Indeks untuk tabel `highlight`
 --
 ALTER TABLE `highlight`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_admin`
+-- Indeks untuk tabel `t_admin`
 --
 ALTER TABLE `t_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_dptryout`
+-- Indeks untuk tabel `t_dptryout`
 --
 ALTER TABLE `t_dptryout`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_pbimbel`
+-- Indeks untuk tabel `t_pbimbel`
 --
 ALTER TABLE `t_pbimbel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_ptryout`
+-- Indeks untuk tabel `t_ptryout`
 --
 ALTER TABLE `t_ptryout`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_user`
+-- Indeks untuk tabel `t_soal`
+--
+ALTER TABLE `t_soal`
+  ADD PRIMARY KEY (`id_soal`);
+
+--
+-- Indeks untuk tabel `t_user`
 --
 ALTER TABLE `t_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `highlight`
+-- AUTO_INCREMENT untuk tabel `highlight`
 --
 ALTER TABLE `highlight`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `t_admin`
+-- AUTO_INCREMENT untuk tabel `t_admin`
 --
 ALTER TABLE `t_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `t_dptryout`
+-- AUTO_INCREMENT untuk tabel `t_dptryout`
 --
 ALTER TABLE `t_dptryout`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `t_pbimbel`
+-- AUTO_INCREMENT untuk tabel `t_pbimbel`
 --
 ALTER TABLE `t_pbimbel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `t_ptryout`
+-- AUTO_INCREMENT untuk tabel `t_ptryout`
 --
 ALTER TABLE `t_ptryout`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `t_user`
+-- AUTO_INCREMENT untuk tabel `t_soal`
+--
+ALTER TABLE `t_soal`
+  MODIFY `id_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `t_user`
 --
 ALTER TABLE `t_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
