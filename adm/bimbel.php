@@ -8,11 +8,49 @@ require('sidebar.php');
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Bimbel</h1>
+
+            <?php
+            if (isset($_POST["tambahPB"])) {
+                $sukses = 'Berhasil menambah Paket Bimbel';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (isset($_POST["updatePB"])) {
+                $sukses = 'Berhasil mengubah Paket Bimbel';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (isset($_POST["hapusPB"])) {
+                $sukses = 'Berhasil menghapus Paket Bimbel';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
+
             <div class="card mb-4 mt-4">
 
                 <div class="card-header">
                     <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#myModal">
-                    <i class="fas fa-solid fa-plus"></i> Paket Bimbel
+                        <i class="fas fa-solid fa-plus"></i> Paket Bimbel
                     </button>
                 </div>
                 <div class="card-body">
@@ -43,17 +81,17 @@ require('sidebar.php');
 
                                             <!-- Detail tryout -->
                                             <a type="button" class="btn btn-light" href="det/detailPB.php?id=<?= $row["id"]; ?>">
-                                            <i class="fas fa-solid fa-circle-info"></i>
-                                            </a> 
+                                                <i class="fas fa-solid fa-circle-info"></i>
+                                            </a>
 
                                             <!-- Ubah Paket Bimbel -->
                                             <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $row["id"]; ?>">
-                                            <i class="fas fa-solid fa-pen-to-square"></i>
+                                                <i class="fas fa-solid fa-pen-to-square"></i>
                                             </a>
 
                                             <!-- Hapus Paket Bimbel -->
                                             <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row["id"]; ?>">
-                                            <i class="fas fa-solid fa-trash"></i>
+                                                <i class="fas fa-solid fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>

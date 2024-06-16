@@ -3,18 +3,6 @@ require 'inc/session.php';
 require 'header.php';
 $admin = query("SELECT * FROM t_admin");
 
-if (isset($_POST["register"])) {
-
-    if (registrasi($_POST) > 0) {
-        echo "<script>
-                alert('admin baru berhasil ditambahkan');
-                document.location.href = 'admin.php';
-                </script>";
-    } else {
-        echo 'eror';
-    }
-}
-
 ?>
 <?php
 require('sidebar.php');
@@ -23,12 +11,39 @@ require('sidebar.php');
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Kelola Admin</h1>
+
+            <?php
+            if (isset($_POST["tambahAdmin"])) {
+                $sukses = 'Berhasil menambah Admin';
+                $error = 'Gagal menambah Admin';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (isset($_POST["hapusAdmin"])) {
+                $sukses = 'Berhasil menghapus Admin';
+                $error = 'Gagal menghapus Admin';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
             <div class="card mb-4 mt-5">
                 <div class="card-header">
 
                     <!-- Button to Open Modal Tambah-->
                     <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#myModal">
-                    <i class="fas fa-solid fa-plus"></i> Admin
+                        <i class="fas fa-solid fa-plus"></i> Admin
                     </button>
                 </div>
                 <div class="card-body">
@@ -55,7 +70,7 @@ require('sidebar.php');
 
                                             <!-- Hapus Paket Tryout -->
                                             <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $adm["id"]; ?>">
-                                            <i class="fas fa-solid fa-trash"></i>
+                                                <i class="fas fa-solid fa-trash"></i>
                                             </a>
 
                                         </td>

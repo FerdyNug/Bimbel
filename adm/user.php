@@ -7,6 +7,19 @@ require('sidebar.php');
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">USER</h1>
+
+            <?php
+            if (isset($_POST["hapusUser"])) {
+                $sukses = 'Berhasil menghapus USer';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
             <div class="card mb-4 mt-4">
 
                 <div class="card-header">

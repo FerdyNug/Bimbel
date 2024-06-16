@@ -220,14 +220,6 @@ if (isset($_POST['tambahAdmin'])) {
         // Jika belum ada
         // tambahkan t_admin baru ke database
         $adminbaru = mysqli_query($conn, "insert into t_admin (username, password) values ('$username', '$password')");
-        if ($adminbaru) {
-            echo '
-                <script>
-                    alert("Berhasil menambah Admin");
-                    widow.location.href="admin.php";
-                </script>
-            ';
-        }
     }
 };
 
@@ -262,21 +254,6 @@ if (isset($_POST['hapusAdmin'])) {
     $id = $_POST['id'];
 
     $hapus = mysqli_query($conn, "delete from t_admin where id='$id'");
-    if ($hapus) {
-        echo '
-        <script>
-            alert("Berhasil menghapus Admin");
-            widow.location.href="admin.php";
-        </script>
-        ';
-    } else {
-        echo '
-        <script>
-            alert("Gagal menghapus Admin");
-            widow.location.href="admin.php";
-        </script>
-        ';
-    }
 };
 
 
@@ -312,17 +289,6 @@ if (isset($_POST['tambahPT'])) {
             if ($ukuran < 15000000) {
                 move_uploaded_file($file_tmp, 'img/' . $image);
                 $addtotable = mysqli_query($conn, "insert into t_ptryout (gambar, judul, rank, peserta, harga) values ('$image','$judul','$rank','$peserta', '$harga')");
-                if ($addtotable) {
-                    echo '
-                    <script>
-                        alert("Berhasil memasukkan Paket Tryout");
-                        widow.location.href="tryout.php";
-                    </script>
-                    ';
-                } else {
-                    echo 'Gagal memasukkan paket ke database';
-                    header('location:tryout.php');
-                }
             } else {
                 // Jika file lebih dari 15mb
                 echo '
@@ -362,24 +328,10 @@ if (isset($_POST['hapusPT'])) {
     unlink($img);
 
     $hapus = mysqli_query($conn, "delete from t_ptryout where id='$id'");
-    if ($hapus) {
-        echo '
-        <script>
-            alert("Berhasil menghapus Paket Tryout");
-            widow.location.href="tryout.php";
-        </script>
-        ';
-    } else {
-        echo '
-        <script>
-            alert("Gagal menghapus Paket Tryout");
-            widow.location.href="tryout.php";
-        </script>
-        ';
-    }
+
 };
 
-//Update Paket Tryout
+//Ubah Paket Tryout
 if (isset($_POST['updatePT'])) {
     $id = $_POST['id'];
     $judul = $_POST['judul'];
@@ -401,21 +353,6 @@ if (isset($_POST['updatePT'])) {
     if ($ukuran == 0) {
         //jika tidak ingin upload
         $update = mysqli_query($conn, "update t_ptryout set judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
-        if ($update) {
-            echo '
-            <script>
-                alert("Berhasil Mengupdate Paket Tryout");
-                widow.location.href="tryout.php";
-            </script>
-            ';
-        } else {
-            echo '
-            <script>
-                alert("Gagal Mengupdate Paket Tryout");
-                widow.location.href="tryout.php";
-            </script>
-            ';
-        }
     } else {
         //Jika ingin upload
         $gambar = mysqli_query($conn, "select * from t_ptryout where id='$id'");
@@ -425,21 +362,6 @@ if (isset($_POST['updatePT'])) {
 
         move_uploaded_file($file_tmp, 'img/' . $image);
         $update = mysqli_query($conn, "update t_ptryout set gambar='$image', judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
-        if ($update) {
-            echo '
-            <script>
-                alert("Berhasil Mengupdate Paket Tryout");
-                widow.location.href="tryout.php";
-            </script>
-            ';
-        } else {
-            echo '
-            <script>
-                alert("Gagal Mengupdate Paket Tryout");
-                widow.location.href="tryout.php";
-            </script>
-            ';
-        }
     }
 };
 
@@ -477,17 +399,6 @@ if (isset($_POST['tambahPB'])) {
             if ($ukuran < 15000000) {
                 move_uploaded_file($file_tmp, 'img/' . $image);
                 $addtotable = mysqli_query($conn, "insert into t_pbimbel (gambar, judul, rank, peserta, harga) values ('$image','$judul','$rank','$peserta', '$harga')");
-                if ($addtotable) {
-                    echo '
-                    <script>
-                        alert("Berhasil memasukkan Paket Bimbel");
-                        widow.location.href="bimbel.php";
-                    </script>
-                    ';
-                } else {
-                    echo 'Gagal memasukkan Paket Bimbel';
-                    header('location:bimbel.php');
-                }
             } else {
                 // Jika file lebih dari 15mb
                 echo '
@@ -527,21 +438,6 @@ if (isset($_POST['hapusPB'])) {
     unlink($img);
 
     $hapus = mysqli_query($conn, "delete from t_pbimbel where id='$id'");
-    if ($hapus) {
-        echo '
-        <script>
-            alert("Berhasil menghapus Paket Bimbel");
-            widow.location.href="bimbel.php";
-        </script>
-        ';
-    } else {
-        echo '
-        <script>
-            alert("Gagal menghapus Paket Bimbel");
-            widow.location.href="bimbel.php";
-        </script>
-        ';
-    }
 };
 
 //Update Paket Bimbel
@@ -566,21 +462,6 @@ if (isset($_POST['updatePB'])) {
     if ($ukuran == 0) {
         //jika tidak ingin upload
         $update = mysqli_query($conn, "update t_pbimbel set judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
-        if ($update) {
-            echo '
-            <script>
-                alert("Berhasil Mengupdate Paket Bimbel");
-                widow.location.href="bimbel.php";
-            </script>
-            ';
-        } else {
-            echo '
-            <script>
-                alert("Gagal Mengupdate Paket Bimbel");
-                widow.location.href="bimbel.php";
-            </script>
-            ';
-        }
     } else {
         //Jika ingin upload
         $gambar = mysqli_query($conn, "select * from t_pbimbel where id='$id'");
@@ -715,7 +596,6 @@ if (isset($_POST['tambahB'])) {
 };
 
 // Ganti Banner
-//Update Paket Bimbel
 if (isset($_POST['gantiB'])) {
     $id = $_POST['id'];
 
@@ -825,37 +705,22 @@ if (isset($_POST['gantiB'])) {
         //Jika ingin upload
         $banner1 = mysqli_query($conn, "select * from highlight where id='$id'");
         $get = mysqli_fetch_array($banner1);
-        $banner1 = 'banner/' . $get['banner1'];
+        $banner1 = 'img/banner/' . $get['banner1'];
         unlink($banner1);
 
         $banner2 = mysqli_query($conn, "select * from highlight where id='$id'");
         $get = mysqli_fetch_array($banner2);
-        $banner2 = 'banner/' . $get['banner2'];
+        $banner2 = 'img/banner/' . $get['banner2'];
         unlink($banner2);
 
         $banner3 = mysqli_query($conn, "select * from highlight where id='$id'");
         $get = mysqli_fetch_array($banner3);
-        $banner3 = 'banner/' . $get['banner3'];
+        $banner3 = 'img/banner/' . $get['banner3'];
         unlink($banner3);
 
-        move_uploaded_file($file_tmp1, 'banner/' . $image1);
-        move_uploaded_file($file_tmp2, 'banner/' . $image2);
-        move_uploaded_file($file_tmp3, 'banner/' . $image3);
+        move_uploaded_file($file_tmp1, 'img/banner/' . $image1);
+        move_uploaded_file($file_tmp2, 'img/banner/' . $image2);
+        move_uploaded_file($file_tmp3, 'img/banner/' . $image3);
         $update = mysqli_query($conn, "update highlight set banner1='$image1', banner2='$image2', banner3='$image3' where id='$id'");
-        if ($update) {
-            echo '
-            <script>
-                alert("Berhasil mengganti seluruh banner");
-                widow.location.href="landpage.php";
-            </script>
-            ';
-        } else {
-            echo '
-            <script>
-                alert("Gagal mengganti banner");
-                widow.location.href="landpage.php";
-            </script>
-            ';
-        }
     }
 }

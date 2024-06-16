@@ -8,6 +8,19 @@ require('sidebar.php');
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Banner (Highlight)</h1>
+
+            <?php
+            if (isset($_POST["gantiB"])) {
+                $sukses = 'Berhasil mengubah tampilan Banner';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
             <div class="card mb-4">
                 <div class="card-header">
                 <!--    <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#myModal">
@@ -36,35 +49,35 @@ require('sidebar.php');
                                     $banner1 = $row['banner1']; //ambil gambar
                                     if($banner1==null){
                                         // Jika tidak ada gambar
-                                        $banner1 = 'No Photo';
+                                        $bann1 = 'No Photo';
                                     } else {
                                         // Jika ada gambar
-                                        $banner1 = '<img src="banner/'.$banner1.'" width="200" height="100">';
+                                        $bann1 = '<img src="img/banner/'.$banner1.'" width="200" height="100">';
                                     }
 
                                     $banner2 = $row['banner2']; //ambil gambar
                                     if($banner2==null){
                                         // Jika tidak ada gambar
-                                        $banner2 = 'No Photo';
+                                        $bann2 = 'No Photo';
                                     } else {
                                         // Jika ada gambar
-                                        $banner2 = '<img src="banner/'.$banner2.'" width="200" height="100">';
+                                        $bann2 = '<img src="img/banner/'.$banner2.'" width="200" height="100">';
                                     }
 
                                     $banner3 = $row['banner3']; //ambil gambar
                                     if($banner3==null){
                                         // Jika tidak ada gambar
-                                        $banner3 = 'No Photo';
+                                        $bann3 = 'No Photo';
                                     } else {
                                         // Jika ada gambar
-                                        $banner3 = '<img src="banner/'.$banner3.'" width="200" height="100">';
+                                        $bann3 = '<img src="img/banner/'.$banner3.'" width="200" height="100">';
                                     }
 
                                 ?>
                                 <tr>
-                                    <td><?= $banner1; ?></td>
-                                    <td><?= $banner2; ?></td>
-                                    <td><?= $banner3; ?></td>
+                                    <td><?= $bann1; ?></td>
+                                    <td><?= $bann2; ?></td>
+                                    <td><?= $bann3; ?></td>
                                     <td>
                                         <!-- Ubah Paket Tryout -->
                                         <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $id; ?>">

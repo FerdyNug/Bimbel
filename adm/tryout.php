@@ -7,6 +7,43 @@ require('sidebar.php');
     <main>
         <div class="container-fluid">
             <h1 class="mt-4">Tryout</h1>
+
+            <?php
+            if (isset($_POST["tambahPt"])) {
+                $sukses = 'Berhasil menambah Paket Tryout';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (isset($_POST["updatePT"])) {
+                $sukses = 'Berhasil mengubah Paket Tryout';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
+            <?php
+            if (isset($_POST["hapusPT"])) {
+                $sukses = 'Berhasil menghapus Paket Tryout';
+            ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $sukses ?>
+                </div>
+            <?php
+            }
+            ?>
+
             <div class="card mb-4">
                 <div class="card-header">
                     <button type="button" class="btn btn-primary text-white" data-toggle="modal" data-target="#myModal">
