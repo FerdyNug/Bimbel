@@ -42,7 +42,7 @@
                     </a>
                     <a class="nav-link" href="admin.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-solid fa-user-tie"></i></div>
-                        Kelola Admin
+                        Admin
                     </a> <br>
                     <a class="nav-link" href="logout.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-solid fa-right-from-bracket"></i></div>

@@ -96,8 +96,8 @@ if (isset($_POST["login"])) {
                                             <input type="checkbox" name="remember" id="remember">
                                             <label for="remember">Remember me</label>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button class="btn btn-primary" type="submit" name="login">Login</button>
+                                        <div class="text-white text-decoration-none">
+                                            <button class="btn btn-primary login" type="submit" name="login">Login</button>
                                         </div>
                                     </form>
                                 </div>

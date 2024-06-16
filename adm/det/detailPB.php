@@ -33,9 +33,11 @@ if ($gambar == null) {
             <i class="fas fa-solid fa-backward"></i>
         </a>
         <div class="w-full ">
-            <h1 class="mt-4"><?= $img; ?> </h1>
-
             <table class="m-0 my-4 mx-4">
+                <tr>
+                    <td></td>
+                    <td><?= $img; ?></td>
+                </tr>
                 <tr>
                     <td>
                         <span class="font-bold">Judul</span>

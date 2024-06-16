@@ -24,7 +24,3 @@ require 'inc/functions.php';
 </head>
 
 <body class="">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3 font-bold" href="../index.php">Admin Bimbel</a>
-    </nav>

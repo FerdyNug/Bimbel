@@ -9,3 +9,8 @@
   transform: scale(2.5);
   transition: 0.3s ease;
 }
+
+.profil{
+  padding-left: 10px;
+  position: center;
+}
