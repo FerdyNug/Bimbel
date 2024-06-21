@@ -1,7 +1,6 @@
 <?php
 require 'inc/session.php';
 require 'header.php';
-require('sidebar.php');
 ?>
 <div id="layoutSidenav_content">
     <main>
@@ -57,6 +56,7 @@ require('sidebar.php');
                                 <tr>
                                     <th>No</th>
                                     <th>Judul</th>
+                                    <th>Tipe</th>
                                     <th>Rating</th>
                                     <th>Peserta</th>
                                     <th>Harga</th>
@@ -71,10 +71,11 @@ require('sidebar.php');
                                 while($row=mysqli_fetch_array($ptryout)){
                                             
                                     $judul = $row['judul'];
+                                    $tipe = $row['tipe'];
                                     $rating = $row['rank'];
                                     $peserta = $row['peserta'];
                                     $harga = $row['harga'];
-                                    $id = $row['id'];
+                                    $idto = $row['idto'];
 
                                     // cek ada gambar atau tidak
                                     $gambar = $row['gambar']; //ambil gambar
@@ -90,6 +91,7 @@ require('sidebar.php');
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $judul; ?></td>
+                                        <td><?= $tipe; ?></td>
                                         <td><?= $rating; ?></td>
                                         <td><?= $peserta; ?></td>
                                         <td><?= $harga; ?></td>
@@ -97,17 +99,17 @@ require('sidebar.php');
                                         <td>
 
                                             <!-- Detail tryout -->
-                                            <a type="button" class="btn btn-light" href="det/detailPT.php?id=<?= $row["id"]; ?>">
+                                            <a type="button" class="btn btn-light" href="det/detailPT.php?id=<?= $idto; ?>">
                                             <i class="fas fa-solid fa-circle-info"></i>
                                             </a> 
 
                                             <!-- Ubah Paket Tryout -->
-                                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $id; ?>">
+                                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $idto; ?>">
                                             <i class="fas fa-solid fa-pen-to-square"></i>
                                             </a> 
 
                                             <!-- Hapus Paket Tryout -->
-                                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $id; ?>">
+                                            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $idto; ?>">
                                             <i class="fas fa-solid fa-trash"></i>
                                             </a>
 
@@ -115,14 +117,13 @@ require('sidebar.php');
                                     </tr>
 
                                     <!-- Modal Edit Paket Tryout -->
-                                    <div class="modal fade" id="edit<?= $row["id"]; ?>">
+                                    <div class="modal fade" id="edit<?= $idto; ?>">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
 
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Update Paket Tryout</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
 
                                                 <!-- Modal body -->
@@ -130,6 +131,7 @@ require('sidebar.php');
                                                     <div class="modal-body">
                                                         <input type="file" name="gambar" class="mb-3">
                                                         <input type="text" name="judul" value="<?= $judul; ?>" class="mb-3 form-control mb" required>
+                                                        <input type="text" name="tipe" value="<?= $tipe; ?>" class="mb-3 form-control mb" required>
                                                         <select class="form-control mb-3" name="rating" id="rating">
                                                             <option value="">Rating Sebelumnya: <?= $rating; ?></option>
                                                             <option value="1">1</option>
@@ -141,7 +143,7 @@ require('sidebar.php');
                                                         <input type="number" name="peserta" value="<?= $peserta; ?>" class="mb-3 form-control mb" required>
                                                         <input type="number" name="harga" value="<?= $harga; ?>" class="mb-3 form-control mb" required>
 
-                                                        <input type="hidden" name="id" value="<?= $id; ?>">
+                                                        <input type="hidden" name="idto" value="<?= $idto; ?>">
                                                         <button type="submit" class="mb-3 btn btn-primary mb" name="updatePT">Ubah</button>
                                                     </div>
                                                 </form>
@@ -151,21 +153,20 @@ require('sidebar.php');
                                     </div>
 
                                     <!-- Modal hapus Paket Tryout -->
-                                    <div class="modal fade" id="delete<?= $id; ?>">
+                                    <div class="modal fade" id="delete<?= $idto; ?>">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
 
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Hapus Paket Tryout?</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
 
                                                 <!-- Modal body -->
                                                 <form method="post">
                                                     <div class="modal-body">
                                                         Apakah Anda yakin ingin menghapus <?= $judul; ?>?
-                                                        <input type="hidden" name="id" value="<?= $id; ?>">
+                                                        <input type="hidden" name="idto" value="<?= $idto; ?>">
                                                         <br> <br>
                                                         <button type="submit" class="mb-3 btn btn-danger mb" name="hapusPT">Hapus</button>
                                                     </div>
@@ -208,6 +209,7 @@ require('sidebar.php');
                     <div class="modal-body">
                         <input type="file" name="gambar" id="gambar" class="mb-3">
                         <input type="text" name="judul" id="judul" class="mb-3 form-control" placeholder="Judul" required>
+                        <input type="text" name="tipe" id="tipe" class="mb-3 form-control" placeholder="Tipe" required>
                         <select class="form-control" name="rating" id="rating">
                             <option value="">Pilih Rating</option>
                             <option value="1">1</option>

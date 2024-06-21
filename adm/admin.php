@@ -4,9 +4,6 @@ require 'header.php';
 $admin = query("SELECT * FROM t_admin");
 
 ?>
-<?php
-require('sidebar.php');
-?>
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
@@ -22,7 +19,7 @@ require('sidebar.php');
                     <?php echo $sukses ?>
                 </div>
             <?php
-            }
+            } 
             ?>
 
             <?php

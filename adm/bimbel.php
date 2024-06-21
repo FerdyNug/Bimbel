@@ -2,7 +2,6 @@
 require 'inc/session.php';
 require 'header.php';
 $pbimbel = query("SELECT * FROM t_pbimbel");
-require('sidebar.php');
 ?>
 <div id="layoutSidenav_content">
     <main>

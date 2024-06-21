@@ -26,12 +26,16 @@
                                 </nav>
                             </div>
                             <a class="nav-link" href="tryout.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-file-pen"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Tryout
                             </a>
                             <a class="nav-link" href="bimbel.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-solid fa-chalkboard-user"></i></div>
                                 Bimbel
+                            </a>
+                            <a class="nav-link" href="bundling.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-chalkboard-user"></i></div>
+                                Bundling
                             </a>
                         </nav>
                     </div>
@@ -47,6 +51,10 @@
                     <a class="nav-link" href="logout.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-solid fa-right-from-bracket"></i></div>
                         Logout
+                    </a>
+                    <a class="nav-link" href="soal.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-solid fa-right-from-bracket"></i></div>
+                        Soal
                     </a>
                 </div>
             </div>

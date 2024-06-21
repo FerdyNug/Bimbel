@@ -92,10 +92,6 @@ if (isset($_POST["login"])) {
                                             <input class="form-control" type="password" name="password" id="password">
                                             <label for="password">Password</label>
                                         </div>
-                                        <div class="form-check mb-3">
-                                            <input type="checkbox" name="remember" id="remember">
-                                            <label for="remember">Remember me</label>
-                                        </div>
                                         <div class="text-white text-decoration-none">
                                             <button class="btn btn-primary login" type="submit" name="login">Login</button>
                                         </div>

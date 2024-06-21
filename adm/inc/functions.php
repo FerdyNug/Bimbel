@@ -237,7 +237,7 @@ if (isset($_POST['ubahAdmin'])) {
             </script>";
         return false;
     }
-    
+
     $adminbaru = mysqli_query($conn, "update t_admin set username='$username', password='$password' where id='$id'");
     if ($adminbaru) {
         echo '
@@ -262,6 +262,7 @@ if (isset($_POST['hapusAdmin'])) {
 //Tambah Paket Tryout
 if (isset($_POST['tambahPT'])) {
     $judul = $_POST['judul'];
+    $tipe = $_POST['tipe'];
     $rank = $_POST['rating'];
     $peserta = $_POST['peserta'];
     $harga = $_POST['harga'];
@@ -288,7 +289,7 @@ if (isset($_POST['tambahPT'])) {
             //  Validasi ukuran file
             if ($ukuran < 15000000) {
                 move_uploaded_file($file_tmp, 'img/' . $image);
-                $addtotable = mysqli_query($conn, "insert into t_ptryout (gambar, judul, rank, peserta, harga) values ('$image','$judul','$rank','$peserta', '$harga')");
+                $addtotable = mysqli_query($conn, "insert into t_ptryout (gambar, judul, rank, tipe, peserta, harga) values ('$image','$judul','$rank','$tipe','$peserta', '$harga')");
             } else {
                 // Jika file lebih dari 15mb
                 echo '
@@ -320,21 +321,21 @@ if (isset($_POST['tambahPT'])) {
 
 //Hapus Paket Tryout
 if (isset($_POST['hapusPT'])) {
-    $id = $_POST['id'];
+    $idto = $_POST['idto'];
 
-    $gambar = mysqli_query($conn, "select * from t_ptryout where id='$id'");
+    $gambar = mysqli_query($conn, "select * from t_ptryout where idto='$idto'");
     $get = mysqli_fetch_array($gambar);
     $img = 'img/' . $get['gambar'];
     unlink($img);
 
-    $hapus = mysqli_query($conn, "delete from t_ptryout where id='$id'");
-
+    $hapus = mysqli_query($conn, "delete from t_ptryout where idto='$idto'");
 };
 
 //Ubah Paket Tryout
 if (isset($_POST['updatePT'])) {
-    $id = $_POST['id'];
+    $idto = $_POST['idto'];
     $judul = $_POST['judul'];
+    $tipe = $_POST['tipe'];
     $rating = $_POST['rating'];
     $peserta = $_POST['peserta'];
     $harga = $_POST['harga'];
@@ -352,16 +353,16 @@ if (isset($_POST['updatePT'])) {
 
     if ($ukuran == 0) {
         //jika tidak ingin upload
-        $update = mysqli_query($conn, "update t_ptryout set judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
+        $update = mysqli_query($conn, "update t_ptryout set judul='$judul', rank='$rating', tipe='$tipe', peserta='$peserta', harga='$harga' where idto='$idto'");
     } else {
         //Jika ingin upload
-        $gambar = mysqli_query($conn, "select * from t_ptryout where id='$id'");
+        $gambar = mysqli_query($conn, "select * from t_ptryout where idto='$idto'");
         $get = mysqli_fetch_array($gambar);
         $img = 'img/' . $get['gambar'];
         unlink($img);
 
         move_uploaded_file($file_tmp, 'img/' . $image);
-        $update = mysqli_query($conn, "update t_ptryout set gambar='$image', judul='$judul', rank='$rating', peserta='$peserta', harga='$harga' where id='$id'");
+        $update = mysqli_query($conn, "update t_ptryout set gambar='$image', judul='$judul', rank='$rating', tipe='$tipe', peserta='$peserta', harga='$harga' where idto='$idto'");
     }
 };
 
@@ -722,5 +723,22 @@ if (isset($_POST['gantiB'])) {
         move_uploaded_file($file_tmp2, 'img/banner/' . $image2);
         move_uploaded_file($file_tmp3, 'img/banner/' . $image3);
         $update = mysqli_query($conn, "update highlight set banner1='$image1', banner2='$image2', banner3='$image3' where id='$id'");
+    }
+}
+
+// BUNDLING
+
+//Menambah Bundling
+if (isset($_POST['tambahBundling'])) {
+    $bundling = $_POST['bundling'];
+    $tipe = $_POST['tipe'];
+
+    $cek = mysqli_query($conn, "select * from t_bptryout where bundling='$bundling'");
+    $hitung = mysqli_fetch_array($cek);
+
+    if ($hitung < 1) {
+        // Jika belum ada
+        // tambahkan t_admin baru ke database
+        $bundlbaru = mysqli_query($conn, "insert into t_bptryout (idto, bundling) values ('$tipe', '$bundling')");
     }
 }
