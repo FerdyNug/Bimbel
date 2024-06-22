@@ -69,7 +69,7 @@
               <a href="login.php" class="ud-main-btn ud-login-btn">
                 Masuk
               </a>
-              <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
+              <a class="ud-main-btn ud-white-btn" href="register.php">
                 Daftar
               </a>
             </div>
@@ -361,7 +361,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="ud-section-title text-center mx-auto">
-            <span>FAQ</span>
+            <span>BANTUAN</span>
             <h2>Ada Pertanyaan?</h2>
             <p>
               There are many variations of passages of Lorem Ipsum available

@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login 09</title>
+  	<title>Register</title>
+	<!--====== Favicon Icon ======-->
+	<link rel="shortcut icon" href="assets/images/favicon.png" type="image/svg" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
