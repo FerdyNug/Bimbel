@@ -383,11 +383,7 @@
               </button>
               <div id="collapseOne" class="accordion-collapse collapse">
                 <div class="ud-faq-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a
-                  type specimen book.
+                  Untuk mengikuti tryout gratis peserta bisa melakukan login terlebih dahulu dan memilih event tryout gratis pada pilihan event. Klik dan ikuti prosedur pendaftarannya!
                 </div>
               </div>
             </div>
@@ -402,11 +398,7 @@
               </button>
               <div id="collapseTwo" class="accordion-collapse collapse">
                 <div class="ud-faq-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a
-                  type specimen book.
+                  Jika kalian sudah memilih tryout gratis kalian juga bisa memilih tryout premium dengan cara memilih produk tryout premium. Klik dan ikuti prosedur pendaftarannya.
                 </div>
               </div>
             </div>
@@ -421,11 +413,7 @@
               </button>
               <div id="collapseThree" class="accordion-collapse collapse">
                 <div class="ud-faq-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a
-                  type specimen book.
+                  Klik pada produk yang ingin anda pilih kemudian ikuti langkah-langkah pendaftarannya!
                 </div>
               </div>
             </div>
@@ -442,30 +430,7 @@
               </button>
               <div id="collapseFour" class="accordion-collapse collapse">
                 <div class="ud-faq-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a
-                  type specimen book.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="ud-single-faq wow fadeInUp" data-wow-delay=".15s">
-            <div class="accordion">
-              <button class="ud-faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFive">
-                <span class="icon flex-shrink-0">
-                  <i class="lni lni-chevron-down"></i>
-                </span>
-                <span>Siapa yang mengajar untuk bimbel?</span>
-              </button>
-              <div id="collapseFive" class="accordion-collapse collapse">
-                <div class="ud-faq-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a
-                  type specimen book.
+                  Peserta mengerjakan tryout seperti biasanya dengan waktu yang disesuaikan dengan tes aslinya. Setelah selesai mengerjakan tryout peserta diperlihatkan hasil dari tryout yang sudah dikerjakan disertai juga pembahasan dan perankingan untuk bahan evaluasi peserta. Peserta juga bisa mengerjakan ulang tryout dengan mereset ulang hasil tryout.
                 </div>
               </div>
             </div>
@@ -480,11 +445,7 @@
               </button>
               <div id="collapseSix" class="accordion-collapse collapse">
                 <div class="ud-faq-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a
-                  type specimen book.
+                  Untuk tryout gratis peserta bisa melihat nilai dan perankingan dari hasil tryout yang sudah dikerjakan.
                 </div>
               </div>
             </div>
