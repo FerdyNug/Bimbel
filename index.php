@@ -95,7 +95,7 @@
             </p>
             <ul class="ud-hero-buttons">
               <li>
-                <a href="https://links.uideck.com/play-bootstrap-download" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                <a href="login.php" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
                   <b>Gabung Sekarang <i class="lni lni-arrow-right"></i></b>
                 </a>
               </li>
