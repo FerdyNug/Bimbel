@@ -15,7 +15,7 @@ for (let i = 0; i < tombolSoal.length - 2; i++) {
         xhr.onreadystatechange = function () {
             if(xhr.readyState == 4 && xhr.status == 200) {
                 container.innerHTML = xhr.responseText;
-                
+
                 // pengondisian ketika selain angka pertama dan terakhir diklik
                 if(i != 0 && i != tombolSoal.length - 3) {
                     tombolSoal[tombolSoal.length - 2].classList.remove("disabled");
@@ -61,7 +61,7 @@ for (let i = 0; i < tombolSoal.length - 2; i++) {
 }
 
 // menambahkan event ketika tombol navigasi diklik
-for (let i = 3; i < tombolSoal.length; i++) {
+for (let i = tombolSoal.length - 2; i < tombolSoal.length; i++) {
     tombolSoal[i].addEventListener('click', function() {
         
         
@@ -74,7 +74,7 @@ for (let i = 3; i < tombolSoal.length; i++) {
                 container.innerHTML = xhr.responseText;
 
                 // pengondisian jika tombol selanjutnya diklik
-                if (i == 4) {
+                if (i == tombolSoal.length - 1) {
                     tombolSoal[tombolSoal.length - 2].classList.remove("disabled");
                     tombolSoal[tombolSoal.length - 2].classList.remove("btn-light");
                     tombolSoal[tombolSoal.length - 2].classList.add("btn-success");
@@ -85,7 +85,7 @@ for (let i = 3; i < tombolSoal.length; i++) {
                     tombolSoal[tombolSoal.length - 1].setAttribute("value",Number(nilaiTombol[1].value) + 1);
 
                     // pengondisian ketika soal berada di nomor terakhir
-                    if (nilaiTombol[1].value == Number(tombolSoal[2].value) + 1) {
+                    if (nilaiTombol[1].value == Number(tombolSoal[tombolSoal.length - 3].value) + 1) {
                         tombolSoal[tombolSoal.length - 2].classList.remove("btn-light");
                         tombolSoal[tombolSoal.length - 2].classList.remove("disabled");
                         tombolSoal[tombolSoal.length - 2].classList.add("btn-success");
@@ -96,7 +96,7 @@ for (let i = 3; i < tombolSoal.length; i++) {
                 }
 
                 // pengondisian ketika tombol sebelumnya diklik
-                else if (i == 3) {
+                else if (i == tombolSoal.length - 2) {
                     tombolSoal[tombolSoal.length - 2].classList.remove("disabled");
                     tombolSoal[tombolSoal.length - 2].classList.remove("btn-light");
                     tombolSoal[tombolSoal.length - 2].classList.add("btn-success");

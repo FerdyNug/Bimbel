@@ -23,30 +23,28 @@ $soal = query("SELECT * FROM t_soal WHERE no_soal = 1")[0];
                 <div class="d-flex flex-row-reverse">
                     <div class="d-inline-flex p-2 rounded bg-danger text-white">Laporkan Soal</div>
                 </div>
-                <div class="rounded-2 border shadow-sm mt-3 p-3">
+                <div class="rounded-2 border shadow-sm mt-3 p-3" id="container">
                     <h3>Soal No. 1</h3>
                     <h4>Tes Wawasan Kebangsaan (TWK)</h4>
                     <p>Subtema Nasionalisme</p>
                     <hr>
                     <div class="text-center">Waktu Pengerjaan: 19 detik | Ganti Jawaban 0 Kali</div>
                     <hr>
-                    <div id="container">
-                        <p><?= $soal["soal"] ?></p>
-                        <div class="rounded border my-2 p-2"><?= $soal["pil_a"]; ?></div>
-                        <div class="rounded border my-2 p-2"><?= $soal["pil_b"]; ?></div>
-                        <div class="rounded border my-2 p-2"><?= $soal["pil_c"]; ?></div>
-                        <div class="rounded border my-2 p-2"><?= $soal["pil_d"]; ?></div>
-                        <div class="rounded border my-2 p-2"><?= $soal["pil_e"]; ?></div>
-                        <hr>
-                        <h3>Pembahasan</h3>
-                        <p><?= $soal["pembahasan"] ?></p>
-                        <h4>Bobot Opsi Jawaban</h4>
-                        <div class="bg-secondary rounded border my-2 p-2">Opsi A: <?= $soal["skor_a"]; ?></div>
-                        <div class="bg-secondary rounded border my-2 p-2">Opsi B: <?= $soal["skor_b"]; ?></div>
-                        <div class="bg-secondary rounded border my-2 p-2">Opsi C: <?= $soal["skor_c"]; ?></div>
-                        <div class="bg-secondary rounded border my-2 p-2">Opsi D: <?= $soal["skor_d"]; ?></div>
-                        <div class="bg-secondary rounded border my-2 p-2">Opsi E: <?= $soal["skor_e"]; ?></div>
-                    </div>
+                    <p><?= $soal["soal"] ?></p>
+                    <div class="rounded border my-2 p-2"><?= $soal["pil_a"]; ?></div>
+                    <div class="rounded border my-2 p-2"><?= $soal["pil_b"]; ?></div>
+                    <div class="rounded border my-2 p-2"><?= $soal["pil_c"]; ?></div>
+                    <div class="rounded border my-2 p-2"><?= $soal["pil_d"]; ?></div>
+                    <div class="rounded border my-2 p-2"><?= $soal["pil_e"]; ?></div>
+                    <hr>
+                    <h3>Pembahasan</h3>
+                    <p><?= $soal["pembahasan"] ?></p>
+                    <h4>Bobot Opsi Jawaban</h4>
+                    <div class="bg-secondary rounded border my-2 p-2">Opsi A: <?= $soal["skor_a"]; ?></div>
+                    <div class="bg-secondary rounded border my-2 p-2">Opsi B: <?= $soal["skor_b"]; ?></div>
+                    <div class="bg-secondary rounded border my-2 p-2">Opsi C: <?= $soal["skor_c"]; ?></div>
+                    <div class="bg-secondary rounded border my-2 p-2">Opsi D: <?= $soal["skor_d"]; ?></div>
+                    <div class="bg-secondary rounded border my-2 p-2">Opsi E: <?= $soal["skor_e"]; ?></div>
                 </div>
             </div>
             <div class="col-md-5 p-3">
