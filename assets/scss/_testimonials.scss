@@ -57,6 +57,56 @@
   }
 }
 
+.ud-single-testimonial-active {
+  padding: 30px;
+  box-shadow: 0px 60px 120px -20px #ebeffd;
+  background: var(--white);
+  margin-bottom: 50px;
+
+  .ud-testimonial-ratings {
+    margin-bottom: 10px;
+
+    i {
+      color: #fbb040;
+    }
+  }
+
+  .ud-testimonial-content-active {
+    margin-bottom: 25px;
+
+    p {
+      font-size: 16px;
+      line-height: 30px;
+      color: #637381;
+    }
+  }
+
+  .ud-testimonial-info-active {
+    display: flex;
+    align-items: center;
+
+    .ud-testimonial-image-active {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 20px;
+    }
+
+    .ud-testimonial-meta-active {
+      h4 {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      p {
+        font-size: 12px;
+        color: #969696;
+      }
+    }
+  }
+}
+
 .ud-brands {
   .ud-title {
     margin-bottom: 30px;

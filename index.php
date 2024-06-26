@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="assets/css/animate.css?v=<?= filemtime('assets/css/animate.css'); ?>" />
   <link rel="stylesheet" href="assets/css/lineicons.css?v=<?= filemtime('assets/css/lineicons.css'); ?>" />
   <link rel="stylesheet" href="assets/css/ud-styles.css?v=<?= filemtime('assets/css/ud-styles.css'); ?>" />
-  <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="stylesheet" href="assets/css/coba.css" />
 
 </head>
 
@@ -51,9 +51,6 @@
                   <a class="ud-menu-scroll" href="#beranda">Beranda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="ud-menu-scroll" href="#tentangKami">About</a>
-                </li>
-                <li class="nav-item">
                   <a class="ud-menu-scroll" href="#produk">Produk Kami</a>
                 </li>
                 <li class="nav-item">
@@ -69,7 +66,7 @@
               <a href="login.php" class="ud-main-btn ud-login-btn">
                 Masuk
               </a>
-              <a class="ud-main-btn ud-white-btn" href="register.php">
+              <a class="ud-main-btn ud-white-btn rounded-pill" href="register.php">
                 Daftar
               </a>
             </div>
@@ -95,7 +92,7 @@
             </p>
             <ul class="ud-hero-buttons">
               <li>
-                <a href="login.php" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn">
+                <a href="login.php" rel="nofollow noopener" target="_blank" class="ud-main-btn ud-white-btn rounded-pill">
                   <b>Gabung Sekarang <i class="lni lni-arrow-right"></i></b>
                 </a>
               </li>
@@ -115,44 +112,13 @@
   </section>
   <!-- ====== Hero End ====== -->
 
-  <!-- ====== About Start ====== -->
-  <section id="tentangKami" class="ud-about">
-    <div class="container">
-      <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-        <div class="ud-about-content-wrapper">
-          <div class="ud-about-content">
-            <span class="tag">Tentang Kami</span>
-            <h2>Para Pencari Berkah.</h2>
-            <p>
-              Para Pencari Berkah.
-            </p>
-
-            <p>
-              Para Pencari Berkah.
-            </p>
-            <a href="javascript:void(0)" class="ud-main-btn">Lebih Lanjut</a>
-          </div>
-        </div>
-        <div class="ud-about-image">
-          <img src="assets/images/about/about-image.svg" alt="about-image" />
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== About End ====== -->
-
   <!-- ====== Produk Start ====== -->
   <section id="produk" class="ud-pricing">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="ud-section-title mx-auto text-center">
-            <span>PRODUK</span>
             <h2>Layanan Produk Kami</h2>
-            <p>
-              There are many variations of passages of Lorem Ipsum available
-              but the majority have suffered alteration in some form.
-            </p>
           </div>
         </div>
       </div>
@@ -161,16 +127,17 @@
         <div class="col-lg-4 col-md-6 col-sm-10">
           <div class="ud-single-pricing first-item wow fadeInUp" data-wow-delay=".15s">
             <div class="ud-pricing-header">
-              <h3>TRYOUT</h3>
-              <h4>Rp 10.000</h4>
+              <h2>PAKET TRYOUT <br>SKD CPNS</h2>
+              <div class="mt-3">
+                <h4>Rp 10.000</h4>
+              </div>
             </div>
             <div class="ud-pricing-body">
               <ul>
-                <li>1 bundle soal</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
+                <li class="fs-5">1 bundle soal</li>
+                <li class="fs-5">Pembahasan</li>
+                <li class="fs-5">Pemeringkatan</li>
+                <li class="fs-5">Statistik Hasil</li>
               </ul>
             </div>
             <div class="ud-pricing-footer">
@@ -184,16 +151,17 @@
           <div class="ud-single-pricing active wow fadeInUp" data-wow-delay=".1s">
 
             <div class="ud-pricing-header">
-              <h3>TRYOUT</h3>
-              <h4>Rp 27.000</h4>
+              <h2 class="text-white">PAKET TRYOUT <br>SKD CPNS</h2>
+              <div class="mt-3">
+                <h4>Rp 27.000</h4>
+              </div>
             </div>
             <div class="ud-pricing-body">
               <ul>
-                <li>3 bundle soal</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
+                <li class="fs-5">3 bundle soal</li>
+                <li class="fs-5">Pembahasan</li>
+                <li class="fs-5">Pemeringkatan</li>
+                <li class="fs-5">Statistik Hasil</li>
               </ul>
             </div>
             <div class="ud-pricing-footer">
@@ -205,17 +173,19 @@
         </div>
         <div class="col-lg-4 col-md-6 col-sm-10">
           <div class="ud-single-pricing last-item wow fadeInUp" data-wow-delay=".15s">
+
             <div class="ud-pricing-header">
-              <h3>TRYOUT</h3>
-              <h4>Rp 45.000</h4>
+              <h2>PAKET TRYOUT <br>SKD CPNS</h2>
+              <div class="mt-3">
+                <h4>Rp 45.000</h4>
+              </div>
             </div>
             <div class="ud-pricing-body">
               <ul>
-                <li>5 bundle soal</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
+                <li class="fs-5">5 bundle soal</li>
+                <li class="fs-5">Pembahasan</li>
+                <li class="fs-5">Pemeringkatan</li>
+                <li class="fs-5">Statistik Hasil</li>
               </ul>
             </div>
             <div class="ud-pricing-footer">
@@ -229,16 +199,17 @@
           <div class="ud-single-pricing active wow fadeInUp" data-wow-delay=".1s">
 
             <div class="ud-pricing-header">
-              <h3>TRYOUT</h3>
-              <h4>Rp 80.000</h4>
+              <h2 class="text-white">PAKET TRYOUT <br>SKD CPNS</h2>
+              <div class="mt-3">
+                <h4>Rp 80.000</h4>
+              </div>
             </div>
             <div class="ud-pricing-body">
               <ul>
-                <li>10 bundle soal</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
+                <li class="fs-5">10 bundle soal</li>
+                <li class="fs-5">Pembahasan</li>
+                <li class="fs-5">Pemeringkatan</li>
+                <li class="fs-5">Statistik Hasil</li>
               </ul>
             </div>
             <div class="ud-pricing-footer">
@@ -252,16 +223,17 @@
           <div class="ud-single-pricing active wow fadeInUp" data-wow-delay=".1s">
 
             <div class="ud-pricing-header">
-              <h3>Bimbel</h3>
-              <h4>Rp 99.000</h4>
+              <h2 class="text-white">BIMBEL <br>SKD CPNS</h2>
+              <div class="mt-3">
+                <h4>Rp 99.000</h4>
+              </div>
             </div>
             <div class="ud-pricing-body">
               <ul>
-                <li>10x Pertemuan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
-                <li>Pembahasan</li>
+                <li class="fs-5">10x Pertemuan</li>
+                <li class="fs-5">2x Tryout</li>
+                <li class="fs-5">Pembahasan + Pemeringkatan</li>
+                <li class="fs-5">Statistik Hasil</li>
               </ul>
             </div>
             <div class="ud-pricing-footer">
@@ -282,30 +254,28 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="ud-section-title mx-auto text-center">
-            <span>Event</span>
-            <h2>Kegiatan Yang Sedang Berlangsung</h2>
-            <p>
-              There are many variations of passages of Lorem Ipsum available
-              but the majority have suffered alteration in some form.
-            </p>
+            <h2 class="text-white">Event Yang Sedang Berlangsung</h2>
           </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-4 col-md-6">
-          <div class="ud-single-testimonial wow fadeInUp" data-wow-delay=".1s">
-            <div class="ud-testimonial-content">
-              <div class="segeraHadir">
-                Segera Hadir
+          <div class="ud-single-testimonial-active wow fadeInUp" data-wow-delay=".1s">
+            <div class="ud-testimonial-content-active">
+              <div class="sedangBerlangsung">
+                Sedang Berlangsung
               </div>
             </div>
-            <div class="ud-testimonial-info">
-              <div class="ud-testimonial-image">
-                <img src="assets/images/testimonials/timer.png" alt="author" class="timer" />
+            <div class="mb-3 text-center">
+              <h5 class="text-white">TRYOUT SKD CPNS 2024 BATCH 1</h5>
+            </div>
+            <div class="ud-testimonial-info-active">
+              <div class="ud-testimonial-image-active">
+                <img src="assets/images/testimonials/iconTimerPutih.png" alt="author" class="timer" />
               </div>
-              <div class="ud-testimonial-meta">
-                <h4>Pelaksanaan:</h4>
+              <div class="ud-testimonial-meta-active">
+                <h5>Pelaksanaan:</h5>
                 <p>22 Juni - 23 Juni 2024</p>
               </div>
             </div>
@@ -318,12 +288,15 @@
                 Segera Hadir
               </div>
             </div>
+            <div class="mb-3">
+              <h5 class="text-black">TRYOUT SKD CPNS 2024 BATCH 2</h5>
+            </div>
             <div class="ud-testimonial-info">
               <div class="ud-testimonial-image">
-                <img src="assets/images/testimonials/timer.png" alt="author" class="timer" />
+                <img src="assets/images/testimonials/icon.png" alt="author" class="timer" />
               </div>
               <div class="ud-testimonial-meta">
-                <h4>Pelaksanaan:</h4>
+                <h5>Pelaksanaan:</h5>
                 <p>22 Juni - 23 Juni 2024</p>
               </div>
             </div>
@@ -336,12 +309,15 @@
                 Segera Hadir
               </div>
             </div>
+            <div class="mb-3">
+              <h5 class="text-black">TRYOUT SKD CPNS 2024 BATCH 3</h5>
+            </div>
             <div class="ud-testimonial-info">
               <div class="ud-testimonial-image">
-                <img src="assets/images/testimonials/timer.png" alt="author" class="timer" />
+                <img src="assets/images/testimonials/icon.png" alt="author" class="timer" />
               </div>
               <div class="ud-testimonial-meta">
-                <h4>Pelaksanaan</h4>
+                <h5>Pelaksanaan</h5>
                 <p>22 Juni - 23 Juni 2024</p>
               </div>
             </div>
@@ -354,19 +330,11 @@
 
   <!-- ====== Bantuan Start ====== -->
   <section id="bantuan" class="ud-faq">
-    <div class="shape">
-      <img src="assets/images/faq/shape.svg" alt="shape" />
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="ud-section-title text-center mx-auto">
-            <span>BANTUAN</span>
             <h2>Ada Pertanyaan?</h2>
-            <p>
-              There are many variations of passages of Lorem Ipsum available
-              but the majority have suffered alteration in some form.
-            </p>
           </div>
         </div>
       </div>
@@ -475,9 +443,6 @@
               <a href="index.php" class="ud-footer-logo">
                 <img src="assets/images/logo/logoputih.png" alt="logo" style="width: 60px;" />
               </a>
-              <p class="ud-widget-desc">
-                Para Pencari Berkah.
-              </p>
             </div>
           </div>
 

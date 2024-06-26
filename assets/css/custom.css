@@ -1,18 +1,20 @@
-.segeraHadir{
-    background-color: red;
-    color: white;
-    text-align: center;
-    border-style: solid;
-    border-radius: 20px;
-    border-width: 1px;
-    padding: 10px;
-    margin: 10px;
-  }
+.segeraHadir {
+  background-color: red;
+  color: white;
+  text-align: center;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 1px;
+  padding: 10px;
+  margin: 10px;
+}
 
 @keyframes spin {
-    to { rotate: -1turn;}
+  to {
+    rotate: -1turn;
+  }
 }
-.ud-testimonial-image{
-    animation: spin 10s
-    linear infinite;
+
+.ud-testimonial-image {
+  animation: spin 10s linear infinite;
 }

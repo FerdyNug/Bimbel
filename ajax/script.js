@@ -6,7 +6,7 @@ var nilaiTombol = document.querySelectorAll('button#tombol-soal');
 // menambahkan event ketika tombol nomor soal diklik
 for (let i = 0; i < tombolSoal.length - 2; i++) {
     tombolSoal[i].addEventListener('click', function() {
-        
+        console.log("success");
         
         // buat object ajax
         var xhr = new XMLHttpRequest();

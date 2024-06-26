@@ -1,6 +1,6 @@
 <?php
 
-require 'header.php';
+require 'file_bekas/header.php';
 $jml_soal = query("SELECT * FROM t_soal");
 
 $soal = query("SELECT * FROM t_soal WHERE no_soal = 1")[0];
