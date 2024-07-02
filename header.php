@@ -20,8 +20,8 @@ require 'inc/functions.php';
     <!-- Akhir Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container my-2">
-            <a href="index.php">
-                <img src="img/logo.png" alt="Bootstrap" width="30" height="40">
+            <a class="navbar-brand" href="index.php">
+                <img src="assets/images/logo/logo.png" alt="Logo" width="40px" class="rounded-circle" />
             </a>
             <div class="btn-group">
                 <a href="#"><i class="bi bi-bell-fill text-primary me-4 align-middle fs-3"></i></a>

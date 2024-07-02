@@ -85,7 +85,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  color: var(--heading-color);
+  color: var(--heading);
   margin: 0px;
 }
 
@@ -137,6 +137,14 @@ p {
 }
 
 /*===== All Button Style =====*/
+.ud-logo {
+  width: 40px;
+}
+
+.ud-logo img {
+  border-radius: 50%;
+}
+
 .ud-main-btn {
   display: inline-block;
   text-align: center;
@@ -153,6 +161,10 @@ p {
   -webkit-transition: all 0.4s ease-out 0s;
   transition: all 0.4s ease-out 0s;
   background: var(--primary-color);
+}
+
+.ud-main-btn.ud-white-btn b {
+  font-size: 18px;
 }
 
 .ud-main-btn:hover {
@@ -520,7 +532,7 @@ p {
 /* ===== Hero CSS ===== */
 .ud-hero {
   background: var(--primary-color);
-  padding-top: 180px;
+  padding-top: 120px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

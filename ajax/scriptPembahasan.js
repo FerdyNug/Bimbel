@@ -55,7 +55,7 @@ for (let i = 0; i < tombolSoal.length - 2; i++) {
         }
 
         // // eksekusi ajax
-        xhr.open('GET', 'soal.php?tombolSoal=' + tombolSoal[i].value, true);
+        xhr.open('GET', 'pembahasan.php?tombolSoal=' + tombolSoal[i].value, true);
         xhr.send();
     });
 }
@@ -120,7 +120,7 @@ for (let i = tombolSoal.length - 2; i < tombolSoal.length; i++) {
         }
 
         // // eksekusi ajax
-        xhr.open('GET', 'soal.php?tombolSoal=' + tombolSoal[i].value, true);
+        xhr.open('GET', 'pembahasan.php?tombolSoal=' + tombolSoal[i].value, true);
         xhr.send();
     });
 }
